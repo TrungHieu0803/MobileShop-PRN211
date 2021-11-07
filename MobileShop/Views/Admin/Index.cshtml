@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>Quản lý sản phẩm</h2>
+<h2 class="mt-2" style="text-align:center">Quản lý sản phẩm</h2>
 <p>
-    <button class="btn-default">@Html.ActionLink("Thêm sản phẩm", "Create")</button>
+    <button class="btn-default">@Html.ActionLink("Thêm sản phẩm", "AddProduct")</button>
 </p>
 <table class="table table-bordered">
     <tr>
@@ -23,33 +23,30 @@
         <th>Tên hãng</th>
         <th>Chỉnh sửa</th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Masp)</td>
-            <td>@Html.DisplayFor(modelItem => item.Tensp)</td>
-            <td>@Html.DisplayFor(modelItem => item.Giatien)</td>
-            <td>@Html.DisplayFor(modelItem => item.Soluong)</td>
-            <td>@Html.DisplayFor(modelItem => item.Mota)</td>
-            <td>@Html.DisplayFor(modelItem => item.Thesim)</td>
-            <td>@Html.DisplayFor(modelItem => item.Bonhotrong)</td>
-            <td>@Html.DisplayFor(modelItem => item.Sanphammoi.Value)</td>
-            <td>@Html.DisplayFor(modelItem => item.Ram)</td>
+            <td>@item.Masp</td>
+            <td>@item.Tensp</td>
+            <td>@item.Giatien</td>
+            <td>@item.Soluong</td>
+            <td>@item.Mota</td>
+            <td>@item.Thesim</td>
+            <td>@item.Bonhotrong</td>
+            <td>@item.Sanphammoi.Value</td>
+            <td>@item.Ram</td>
             <td>
-                <img src="@Url.Content("~/HinhanhSP/" +item.Anhbia)" width="50" height="50" />
-                @*@Html.DisplayFor(modelItem => item.Anhbia)*@
+                <img src="@Url.Content(item.Anhbia)" width="50" height="50" />
             </td>
-            <td>@Html.DisplayFor(modelItem => item.Mahang)</td>
+            <td>@((ViewBag.Hangsanxuats as IList<MobileShop.Models.Hangsanxuat>).FirstOrDefault(c => c.Mahang == item.Mahang).Tenhang)</td>
             <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.Masp })|
-                @Html.ActionLink("Xoá", "Delete", new { id = item.Masp })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Masp })
             </td>
         </tr>
     }
 </table>
 <br />
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 
 
 

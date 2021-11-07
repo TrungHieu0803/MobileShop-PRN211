@@ -3,7 +3,7 @@ using MobileShop.Models;
 using System.Linq;
 using PagedList;
 using System.Web.Mvc;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MobileShop.Controllers
 {
@@ -16,8 +16,28 @@ namespace MobileShop.Controllers
             var sanpham = context.Sanphams.OrderBy(x => x.Masp);
             int pageSize = 8;
             int pageNumber = (page ?? 1);
+            ViewBag.Hangsanxuats = context.Hangsanxuats.ToList();
             return View(sanpham.ToPagedList(pageNumber, pageSize));
         }
-        
+        public ActionResult AddProduct()
+        {
+            var hangselected = new SelectList(context.Hangsanxuats, "Mahang", "Tenhang");
+            ViewBag.Mahang = hangselected;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(Sanpham sanpham)
+        {
+            try
+            {
+                context.Sanphams.Add(sanpham);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

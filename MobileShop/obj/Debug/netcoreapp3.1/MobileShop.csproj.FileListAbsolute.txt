@@ -176,3 +176,5 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netc
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.dll
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Web.Mvc.Extensions.dll
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.csproj.AssemblyReference.cache
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
