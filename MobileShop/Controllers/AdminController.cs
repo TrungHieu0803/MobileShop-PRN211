@@ -11,7 +11,7 @@ namespace MobileShop.Controllers
     {
         MobileShopContext context = new MobileShopContext();
         public ActionResult Index(int? page)
-        {            
+        {
             if (page == null) page = 1;
             var sanpham = context.Sanphams.OrderBy(x => x.Masp);
             int pageSize = 8;
@@ -73,7 +73,7 @@ namespace MobileShop.Controllers
         {
             try
             {
-                var sanpham = context.Sanphams.FirstOrDefault(s => s.Masp==id);
+                var sanpham = context.Sanphams.FirstOrDefault(s => s.Masp == id);
                 context.Sanphams.Remove(sanpham);
                 context.SaveChanges();
                 return RedirectToAction("Index");
