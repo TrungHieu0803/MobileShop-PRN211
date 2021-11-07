@@ -1,0 +1,64 @@
+﻿@model X.PagedList.IPagedList<MobileShop.Models.Donhang>
+@using X.PagedList.Mvc.Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mt-2" style="text-align:center">Quản lý đơn hàng</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Mã đơn</th>
+        <th>Ngày đặt</th>
+        <th>Tình trạng</th>
+        <th>Mã người dùng</th>
+        <th>Số lượng sản phẩm</th>
+        <th>Tổng tiền</th>
+        <th>Hành động</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Madon</td>
+            <td>@item.Ngaydat</td>
+            @switch (item.Tinhtrang)
+            {
+                case 1:
+                    <td>Hoàn thành</td>
+                    break;
+                case 2:
+                    <td>Đã hủy</td>
+                    break;
+                default:
+                    <td>Đang xử lý</td>
+                    break;
+            }
+
+            <td>@item.MaNguoidung</td>
+            @{
+                int soluong = 0;
+                int tongtien = 0;
+                foreach (var chitiet in ViewBag.Chitietdonhangs)
+                {
+                    int count = 0;
+                    if (chitiet.Madon == item.Madon)
+                    {
+                        soluong += chitiet.Soluong;
+                        tongtien += chitiet.Thanhtien;
+                    }
+                }
+                <td>@soluong</td>
+                <td>@tongtien</td>
+            }
+            <td>
+                <a href="/Admin/EditDonhang/@item.Madon">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+
+
+

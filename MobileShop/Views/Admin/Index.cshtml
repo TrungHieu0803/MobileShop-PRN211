@@ -1,12 +1,12 @@
-﻿@model PagedList.IPagedList<MobileShop.Models.Sanpham>
-@using PagedList.Mvc;
+﻿@model X.PagedList.IPagedList<MobileShop.Models.Sanpham>
+@using X.PagedList.Mvc.Core;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <h2 class="mt-2" style="text-align:center">Quản lý sản phẩm</h2>
 <p>
-    <button class="btn-default">@Html.ActionLink("Thêm sản phẩm", "AddProduct")</button>
+    <a href="/Admin/AddProduct"><button class="btn btn-success">Thêm sản phẩm mới</button></a>
 </p>
 <table class="table table-bordered">
     <tr>
@@ -40,13 +40,14 @@
             </td>
             <td>@((ViewBag.Hangsanxuats as IList<MobileShop.Models.Hangsanxuat>).FirstOrDefault(c => c.Mahang == item.Mahang).Tenhang)</td>
             <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.Masp })
+                <a href="/Admin/EditProduct/@item.Masp">Sửa</a>
             </td>
         </tr>
     }
 </table>
 <br />
 Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",new { page }))
 
 
 

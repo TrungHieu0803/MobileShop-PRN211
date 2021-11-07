@@ -1,20 +1,19 @@
 ﻿@model MobileShop.Models.Sanpham
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2 class="mt-2" style="text-align:center">Thêm sản phẩm mới</h2>
-
+<h2 class="mt-2" style="text-align:center">Sửa sản phẩm</h2>
 @using (Html.BeginForm())
 {
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Masp)
         <div class="form-group">
             <label>Tên sản phẩm</label>
             @Html.EditorFor(model => model.Tensp, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Tensp, "", new { @class = "text-danger" })
-
         </div>
         <div class="form-group">
             <label>Giá tiền</label>
@@ -45,7 +44,7 @@
             <div class="checkbox">
                 <label>Sản phẩm mới</label>
                 <select asp-for="Sanphammoi" class="form-control" id="Sanphammoi" name="Sanphammoi">
-                    <option selected>True</option>
+                    <option>True</option>
                     <option>False</option>
                 </select>
                 @Html.ValidationMessageFor(model => model.Sanphammoi, "", new { @class = "text-danger" })
@@ -67,10 +66,11 @@
             @Html.ValidationMessageFor(model => model.Mahang, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2">
-                <input type="submit" value="Thêm" class="btn btn-success" />
+            <div class="col-md-offset-2 mb-1">
+                <input type="submit" value="Sửa" class="btn btn-success" />
                 <a href="/Admin/Index"><button class="btn btn-danger">Hủy</button></a>
             </div>
+            @Html.ActionLink("Xoá sản phẩm", "DeleteProduct", new { id = Model.Masp })
         </div>
     </div>
 }

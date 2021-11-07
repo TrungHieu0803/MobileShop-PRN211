@@ -173,8 +173,11 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netc
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.genruntimeconfig.cache
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
-D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.dll
-D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
-D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Web.Mvc.Extensions.dll
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.csproj.AssemblyReference.cache
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\X.PagedList.dll
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.MvcApplicationPartsAssemblyInfo.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DonhangIndex.cshtml.g.cs
