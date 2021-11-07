@@ -144,7 +144,6 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netc
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.csproj.AssemblyReference.cache
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.GeneratedMSBuildEditorConfig.editorconfig
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.AssemblyInfoInputs.cache
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.AssemblyInfo.cs
@@ -176,3 +175,4 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netc
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.dll
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Web.Mvc.Extensions.dll
