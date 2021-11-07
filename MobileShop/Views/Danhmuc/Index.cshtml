@@ -1,0 +1,22 @@
+﻿@using MobileShop;
+@model List<Hangsanxuat>
+@{ 
+    Layout = "~/Views/Shared/_LayoutHomepage.cshtml";
+}
+
+<br />
+
+<div class="bg-success">
+
+    <h3> DANH MỤC  </h3>
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">@item.Tenhang</a></li>
+            
+        </ul>}
+    </div>
+</div>

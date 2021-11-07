@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aHRQ5oJ45aMpMgDRXr+z6hCbBco7c6j4waRKNPYvuvxukD40pZjPkbU4MDI1gH0d99MoY7kvNbTP27Yz5LtaZw==",
+  "dgSpecHash": "tEOF6Db2MsKG9b6l8G5emDmzI7YVWSNZMzb+3oSdxVWFT8Roz5oo9VLH20YKeQbAg9V1ld0NipF3PettFCtRdQ==",
   "success": true,
-  "projectFilePath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
