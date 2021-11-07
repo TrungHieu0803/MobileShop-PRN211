@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\source\\repos\\MobileShop\\MobileShop\\MobileShop.csproj": {}
+    "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\source\\repos\\MobileShop\\MobileShop\\MobileShop.csproj": {
+    "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\source\\repos\\MobileShop\\MobileShop\\MobileShop.csproj",
+        "projectUniqueName": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
         "projectName": "MobileShop",
-        "projectPath": "C:\\Users\\admin\\source\\repos\\MobileShop\\MobileShop\\MobileShop.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\source\\repos\\MobileShop\\MobileShop\\obj\\",
+        "projectPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,14 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Web.Mvc.Extensions": {
+              "target": "Package",
+              "version": "[1.1.1.2, )"
             }
           },
           "imports": [
