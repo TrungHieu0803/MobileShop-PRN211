@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-
+using Newtonsoft.Json;
 namespace MobileShop.Controllers
 {
     public class UsersController : Controller
@@ -25,9 +25,16 @@ namespace MobileShop.Controllers
         public IActionResult Login(Nguoidung model)
         {
             //So sánh Account
-            if(ModelState.IsValid && model.Email=="quoc@gmail.vn" && model.Matkhau == "123456")
+            if(ModelState.IsValid && model.Email=="quoc@gmail.com" && model.Matkhau == "123456")
             {
+                //Tao 1 Session 
+                HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(model));
+                return RedirectToAction("index", "Home");
 
+            }
+            else
+            {
+                return View(model);
             }
         }
     }
