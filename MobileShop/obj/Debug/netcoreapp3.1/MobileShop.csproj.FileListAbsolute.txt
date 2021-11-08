@@ -487,3 +487,5 @@ D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Deb
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.genruntimeconfig.cache
 >>>>>>> 6b155be54e2b4bcdfc58b68ad8c7fb8bb101e794
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Index.cshtml.g.cs
+D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Chitietdonhang.cshtml.g.cs
+D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditDonhang.cshtml.g.cs
