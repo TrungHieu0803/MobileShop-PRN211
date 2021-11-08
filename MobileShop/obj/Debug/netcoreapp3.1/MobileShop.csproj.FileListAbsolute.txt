@@ -382,3 +382,4 @@ C:\Users\Admin\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreap
 C:\Users\Admin\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.Views.pdb
 C:\Users\Admin\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.csproj.CopyComplete
 C:\Users\Admin\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.genruntimeconfig.cache
+C:\Users\Admin\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Users\Register.cshtml.g.cs
