@@ -378,6 +378,10 @@ C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcore
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HangsanxuatIndex.cshtml.g.cs
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditHang.cshtml.g.cs
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddHang.cshtml.g.cs
+<<<<<<< HEAD
+C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditDonhang.cshtml.g.cs
+C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Chitietdonhang.cshtml.g.cs
+=======
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\appsettings.json
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\MobileShop.exe
@@ -481,3 +485,5 @@ D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Deb
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.dll
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.pdb
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.genruntimeconfig.cache
+>>>>>>> 6b155be54e2b4bcdfc58b68ad8c7fb8bb101e794
+C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Index.cshtml.g.cs
