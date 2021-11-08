@@ -1,5 +1,68 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MobileShop.Models.Donhang
 @{
+    ViewBag.Title = "EditDonhang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<h2 class="mt-2" style="text-align:center">Chi tiết đơn hàng</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <div class="row">
+            <label class="col-4">Mã đơn: @Model.Madon</label>
+            @Html.HiddenFor(model => model.Madon)
+            <label class="col-4">Ngày đặt: @Model.Ngaydat</label>
+            @Html.HiddenFor(model => model.Ngaydat)
+            <label class="col-4">Người dùng: @Model.Madon - @((ViewBag.Nguoidungs as IList<MobileShop.Models.Nguoidung>).FirstOrDefault(c => c.MaNguoiDung == Model.MaNguoidung).Hoten)</label>
+            @Html.HiddenFor(model => model.MaNguoidung)
+        </div>
+        <div class="row">
+            @{
+                int soluong = 0;
+                int tongtien = 0;
+                foreach (var chitiet in ViewBag.Chitietdonhangs)
+                {
+                    if (chitiet.Madon == Model.Madon)
+                    {
+                        soluong += chitiet.Soluong;
+                        tongtien += chitiet.Thanhtien;
+                    }
+                }
+                <label class="col-4">Số lượng sản phẩm: @soluong</label>
+                <label class="col-4">Tổng tiền: @tongtien</label>
+            }
+            <label class="col-1">Trạng thái:</label>
+            <select asp-for="Tinhtrang" class="form-control col-2" id="Tinhtrang" name="Tinhtrang">
+                <option value="0">Đang xử lý</option>
+                <option value="1">Hoàn thành</option>
+                <option value="2">Đã hủy</option>
+            </select>
+            <input type="submit" value="OK" class="btn btn-success col-1" />
+        </div>
+    </div>
+    <table class="table table-bordered mt-2">
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+        </tr>
+        @foreach (var item in ViewBag.Chitietdonhangs)
+        {
+            <tr>
+                <td>@((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Tensp)</td>
+                <td>
+                    <img src="@Url.Content((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Anhbia)" width="50" height="50" />
+                </td>
+                <td>@item.Soluong</td>
+                <td>@item.Dongia</td>
+                <td>@item.Thanhtien</td>
+            </tr>
+        }
+    </table>
+    <br />
+}
+
+
+
+
