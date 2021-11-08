@@ -16,5 +16,10 @@ namespace MobileShop.Controllers
             var sanpham = db.Sanphams.ToList();
             return View(sanpham);
         }
+
+        public IActionResult Detail()
+        {
+            return View();
+        }
     }
 }
