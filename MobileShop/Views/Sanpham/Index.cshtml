@@ -1,0 +1,40 @@
+﻿@using MobileShop.Models
+@model List<Sanpham>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Danh Sach San Pham</title>
+    </head>
+    <body>
+        <table style="width:80%; margin:20px auto">
+            <tr>
+                <td>Mã SP</td>
+                <td>Tên</td>
+                <td>Giá</td>
+                <td>Số lượng</td>
+                <td>Bộ nhớ</td>
+                <td>trạng thái</td>
+            </tr>
+
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.Masp</td>
+                    <td>@s.Tensp</td>
+                    <td>@s.Giatien</td>
+                    <td>@s.Soluong</td>
+                    <td>@s.Bonhotrong</td>
+                    @if (s.Sanphammoi == true)
+                    {
+                        <td>Hàng mới về</td>
+                    }
+                    else
+                    {
+                        <td>Hàng cũ</td>
+                    }
+                </tr>
+            }
+        </table>
+    </body>
+</html>

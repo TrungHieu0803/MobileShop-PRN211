@@ -1,0 +1,48 @@
+﻿@model MobileShop.Models.Nguoidung
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mt-2" style="text-align:center">Sửa sản phẩm</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaNguoiDung)
+        <div class="form-group">
+            <label>Họ Tên</label>
+            @Html.EditorFor(model => model.Hoten, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Hoten, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Điện thoại</label>
+            @Html.EditorFor(model => model.Dienthoai, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Mật khẩu</label>
+            @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Tên Quyền</label>
+            @Html.EditorFor(model => model.Idquyen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Idquyen, "", new { @class = "text-danger" })
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 mb-1">
+                <input type="submit" value="Sửa" class="btn btn-success" />
+                <a href="/Admin/NguoidungIndex"><button class="btn btn-danger">Hủy</button></a>
+            </div>
+            @Html.ActionLink("Xoá người dùng", "DeleteNguoidung", new { id = Model.MaNguoiDung })
+        </div>
+    </div>
+}
+

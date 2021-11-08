@@ -1,0 +1,27 @@
+﻿@model MobileShop.Models.Hangsanxuat
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mt-2" style="text-align:center">Thêm hãng mới</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label>Tên hãng</label>
+            @Html.EditorFor(model => model.Tenhang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tenhang, "", new { @class = "text-danger" })
+
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2">
+                <input type="submit" value="Thêm" class="btn btn-success" />
+                <a href="/Admin/HangsanxuatIndex"><button class="btn btn-danger">Hủy</button></a>
+            </div>
+        </div>
+    </div>
+}
