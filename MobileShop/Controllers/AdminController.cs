@@ -96,7 +96,9 @@ namespace MobileShop.Controllers
         public ActionResult EditDonhang(int id)
         {
             var donhang = context.Donhangs.Find(id);
-            ViewBag.Chitietdonhangs = context.Chitietdonhangs.ToList();
+            ViewBag.Nguoidungs = context.Nguoidungs.ToList();
+            ViewBag.Chitietdonhangs = context.Chitietdonhangs.Where(s => s.Madon == id).ToList();
+            ViewBag.Sanphams = context.Sanphams.ToList();
             return View(donhang);
         }
         [HttpPost]
@@ -109,21 +111,13 @@ namespace MobileShop.Controllers
                 donhangcu.Ngaydat = donhang.Ngaydat;
                 donhangcu.MaNguoidung = donhang.MaNguoidung;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("DonhangIndex");
             }
             catch
             {
                 return View();
             }
         }
-
-        public ActionResult Chitietdonhang(int id)
-        {
-            Chitietdonhang chitietdonhang = context.Chitietdonhangs.Find(id);
-            return View(chitietdonhang);
-        }
-
-        // Hiển thị người dùng 
         public ActionResult NguoidungIndex(int? page)
         {
             if (page == null) page = 1;
