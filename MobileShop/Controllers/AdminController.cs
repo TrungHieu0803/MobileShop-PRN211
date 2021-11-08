@@ -117,6 +117,12 @@ namespace MobileShop.Controllers
             }
         }
 
+        public ActionResult Chitietdonhang(int id)
+        {
+            Chitietdonhang chitietdonhang = context.Chitietdonhangs.Find(id);
+            return View(chitietdonhang);
+        }
+
         // Hiển thị người dùng 
         public ActionResult NguoidungIndex(int? page)
         {

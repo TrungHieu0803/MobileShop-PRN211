@@ -378,3 +378,5 @@ C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcore
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HangsanxuatIndex.cshtml.g.cs
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditHang.cshtml.g.cs
 C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddHang.cshtml.g.cs
+C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditDonhang.cshtml.g.cs
+C:\Users\This PC\Documents\GitHub\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Chitietdonhang.cshtml.g.cs
