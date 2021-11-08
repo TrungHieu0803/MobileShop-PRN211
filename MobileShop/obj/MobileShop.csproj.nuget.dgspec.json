@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {}
+    "C:\\Users\\This PC\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {
+    "C:\\Users\\This PC\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+        "projectUniqueName": "C:\\Users\\This PC\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
         "projectName": "MobileShop",
-        "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\obj\\",
+        "projectPath": "C:\\Users\\This PC\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+        "packagesPath": "C:\\Users\\This PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\This PC\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\This PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
