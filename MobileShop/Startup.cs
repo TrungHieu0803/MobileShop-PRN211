@@ -24,6 +24,9 @@ namespace MobileShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc()
+       .AddSessionStateTempDataProvider();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +46,8 @@ namespace MobileShop
             app.UseStaticFiles();
 
             app.UseRouting();
+            //Session
+            app.UseSession();
 
             app.UseAuthorization();
 
