@@ -4,6 +4,7 @@ using System.Linq;
 using X.PagedList;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace MobileShop.Controllers
 {
@@ -115,5 +116,127 @@ namespace MobileShop.Controllers
                 return View();
             }
         }
+
+        // Hiển thị người dùng 
+        public ActionResult NguoidungIndex(int? page)
+        {
+            if (page == null) page = 1;
+            var nguoidung = context.Nguoidungs.Include(x => x.IdquyenNavigation);
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+            ViewBag.Hangsanxuats = context.Hangsanxuats.ToList();
+            return View(nguoidung.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult EditNguoidung(int id)
+        {
+            var nguoidung = context.Nguoidungs.Find(id);
+            var quyenselected = new SelectList(context.PhanQuyens, "IdQuyen", "TenQuyen", nguoidung.Idquyen);
+            ViewBag.IDQuyen = quyenselected;
+            return View(nguoidung);
+        }
+        [HttpPost]
+        public ActionResult EditNguoidung(Nguoidung nguoidung)
+        {
+            try
+            {
+                var nguoidungcu = context.Nguoidungs.Find(nguoidung.MaNguoiDung);
+                nguoidungcu.Hoten = nguoidung.Hoten;
+                nguoidungcu.Email = nguoidung.Email;
+                nguoidungcu.Dienthoai = nguoidung.Dienthoai;
+                nguoidungcu.Matkhau = nguoidung.Matkhau;
+                nguoidungcu.Idquyen = nguoidung.Idquyen;
+                
+                context.SaveChanges();
+                return RedirectToAction("NguoidungIndex");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DeleteNguoidung(int id)
+        {
+            try
+            {
+                var nguoidung = context.Nguoidungs.FirstOrDefault(s => s.MaNguoiDung == id);
+                context.Nguoidungs.Remove(nguoidung);
+                context.SaveChanges();
+                return RedirectToAction("NguoidungIndex");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult HangsanxuatIndex(int? page)
+        {
+            if (page == null) page = 1;
+            var hangsanxuat = context.Hangsanxuats.ToList();
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+            
+            return View(hangsanxuat.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult EditHang(int id)
+        {
+            var hangsanxuat = context.Hangsanxuats.Find(id);
+            
+            
+            return View(hangsanxuat);
+        }
+        [HttpPost]
+        public ActionResult EditHang(Hangsanxuat hangsanxuat)
+        {
+            try
+            {
+                var hangcu = context.Hangsanxuats.Find(hangsanxuat.Mahang);
+                hangcu.Tenhang = hangsanxuat.Tenhang;
+                
+
+                context.SaveChanges();
+                return RedirectToAction("HangsanxuatIndex");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DeleteHang(int id)
+        {
+            try
+            {
+                var hangsanxuat = context.Hangsanxuats.FirstOrDefault(s => s.Mahang == id);
+                context.Hangsanxuats.Remove(hangsanxuat);
+                context.SaveChanges();
+                return RedirectToAction("HangsanxuatIndex");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult AddHang()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddHang(Hangsanxuat hangsanxuat)
+        {
+            try
+            {
+                context.Hangsanxuats.Add(hangsanxuat);
+                context.SaveChanges();
+                return RedirectToAction("HangsanxuatIndex");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }

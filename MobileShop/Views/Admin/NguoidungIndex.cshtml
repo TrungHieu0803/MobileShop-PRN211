@@ -1,0 +1,49 @@
+﻿@model X.PagedList.IPagedList<MobileShop.Models.Nguoidung>
+@using X.PagedList.Mvc.Core;
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mt-2" style="text-align:center">Quản lý người dùng</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Họ Tên</th>
+        <th>Email</th>
+        <th>Điện thoại</th>
+        <th>Mật khẩu</th>
+        <th>Địa chỉ </th>
+        <th>Tên quyền </th>
+        <th>Hành động</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hoten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dienthoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matkhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdquyenNavigation.TenQuyen)
+            </td>
+            <td>
+                <a href="/Admin/EditNguoidung/@item.MaNguoiDung">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+

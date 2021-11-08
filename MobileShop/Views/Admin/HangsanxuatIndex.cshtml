@@ -1,0 +1,32 @@
+﻿@model X.PagedList.IPagedList<MobileShop.Models.Hangsanxuat>
+@using X.PagedList.Mvc.Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 class="mt-2" style="text-align:center">Quản lý hãng sản xuất</h2>
+<p>
+    <a href="/Admin/AddHang"><button class="btn btn-success">Thêm hãng mới</button></a>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>Mã hãng</th>
+        <th>Tên hãng</th>       
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Mahang</td>
+            <td>@item.Tenhang</td>
+            
+            <td>
+                <a href="/Admin/EditHang/@item.Mahang">Sửa</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
