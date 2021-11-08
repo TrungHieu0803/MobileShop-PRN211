@@ -130,7 +130,7 @@ namespace MobileShop.Controllers
         public ActionResult EditNguoidung(int id)
         {
             var nguoidung = context.Nguoidungs.Find(id);
-            var quyenselected = new SelectList(context.PhanQuyens, "IdQuyen", "TenQuyen", nguoidung.Idquyen);
+            var quyenselected = new SelectList(context.PhanQuyens, "Idquyen", "TenQuyen", nguoidung.Idquyen);
             ViewBag.IDQuyen = quyenselected;
             return View(nguoidung);
         }
