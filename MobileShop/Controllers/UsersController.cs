@@ -10,6 +10,8 @@ namespace MobileShop.Controllers
 {
     public class UsersController : Controller
     {
+        MobileShopContext db = new MobileShopContext();
+
         public IActionResult Index()
         {
             // khi chưa có quyền sẽ điều hướng về Login
@@ -22,11 +24,14 @@ namespace MobileShop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(Nguoidung model)
+        public IActionResult Login(Nguoidung model )
         {
             //So sánh Account
-            if(ModelState.IsValid && model.Email=="quoc@gmail.com" && model.Matkhau == "123456")
+            if(ModelState.IsValid /*&& model.Email=="quoc@gmail.com" && model.Matkhau=="123456"*/)
             {
+
+                
+                var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
                 //Tao 1 Session 
                 HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(model));
                 return RedirectToAction("index", "Home");
