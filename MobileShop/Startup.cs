@@ -43,6 +43,8 @@ namespace MobileShop
             app.UseStaticFiles();
 
             app.UseRouting();
+            //Session
+            app.UseSession();
 
             app.UseAuthorization();
 

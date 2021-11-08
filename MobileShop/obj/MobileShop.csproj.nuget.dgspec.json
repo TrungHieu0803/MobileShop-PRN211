@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {}
+    "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {}
   },
   "projects": {
-    "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {
+    "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
         "projectName": "MobileShop",
-        "projectPath": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
-        "packagesPath": "C:\\Users\\DO THANH TRUNG\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\MobileShop-PRN211\\MobileShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DO THANH TRUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "X.PagedList": {
               "target": "Package",
