@@ -1,1 +1,64 @@
-﻿
+﻿@model MobileShop.Models.Nguoidung
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row justify-content-md-center">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+
+
+        <div class="card">
+            <div class="card-header">
+                <h1 style="text-align:center; color:red; margin-top:70px;">Register</h1>
+            </div>
+            <form asp-controller="Users" asp-action="Register" style="justify-content: center;">
+                <div class="card-body">
+                    <div class="form-group">
+                        <h4>Họ và tên</h4>
+                        @Html.TextBoxFor(model => model.Hoten, "", new { @class = "form-control", @placeholder = "Full Name" })
+                        @Html.ValidationMessageFor(model => model.Hoten, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Email</h4>
+                        @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <h4>Nhập mật khẩu</h4>
+                        @Html.PasswordFor(model => model.Matkhau, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <h4>Nhập lại mật khẩu</h4>
+                        @Html.PasswordFor(model => model.NhaplaiMatkhau, new { @class = "form-control", @placeholder = "Confim Password" })
+                        @Html.ValidationMessageFor(model => model.NhaplaiMatkhau, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <h4>Địa chỉ</h4>
+                        @Html.TextBoxFor(model => model.Diachi, new { @class = "form-control", @placeholder = "Confim Password" })
+                        @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <h4>SĐT</h4>
+                        @Html.TextBoxFor(model => model.Dienthoai, new { @class = "form-control", @placeholder = "Confim Password" })
+                        @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-danger" value="Register" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+

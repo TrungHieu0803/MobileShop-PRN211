@@ -14,7 +14,8 @@
     <script src="~/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     @using MobileShop.Models
-
+    @model MobileShop.Models.Nguoidung
+   
     <style type="text/css">
         body {
             background-color: #F0F0F0;
@@ -77,8 +78,8 @@
 
 <body>
 
-    @{ var u = TempData["user"] as Nguoidung; }
-
+    @{ var u = TempData["User"] as Nguoidung; }
+   
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #19194d ">
 
         <div class="top_header col-md-12">
@@ -91,14 +92,14 @@
             Xin chào : @u.Email
 
 
-            <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+            <a style="color:red" href="/Users/Logout"> ĐĂNG XUẤT</a>
         </div> }
     else
     {
 <div class="col-sm-4 col-md-0">
-    <a style="color:white" href="/User/Dangky"> Đăng ký</a>
+    <a style="color:white" href="/Users/Login"> Đăng nhập</a>
 
-    <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
+    <a style="color:white" href="/Users/Register"> Đăng ký</a>
 </div> } }
 
             </div>
@@ -140,6 +141,12 @@
                         @*@Html.ActionLink("GioHangPartial", "GioHang", new { @class = "giohang" })*@
                         <a asp-controller="GioHang" asp-action="GioHang"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a>
                         @*<a asp-controller="Product" asp-action="Index">Products</a>*@
+                    </li>
+                    <li>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search here ..." aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                     </li>
                 </ul>
             </div>

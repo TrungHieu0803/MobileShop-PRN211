@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = MobileShop
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\
+=======
+build_property.ProjectDir = C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\
+>>>>>>> df108e557ff376ab8791026e3ae876790510bed1
