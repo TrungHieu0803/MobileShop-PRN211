@@ -613,3 +613,7 @@ D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Deb
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.dll
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.pdb
 D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\MobileShop.genruntimeconfig.cache
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\Giohang.cshtml.g.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\GiohangPartial.cshtml.g.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\SuaGioHang.cshtml.g.cs
+D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Detail.cshtml.g.cs

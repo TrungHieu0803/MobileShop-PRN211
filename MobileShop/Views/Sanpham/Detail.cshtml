@@ -1,1 +1,79 @@
-﻿<h1>hello</h1>
+﻿@model MobileShop.Models.Sanpham
+@{
+    ViewBag.Title = "Product Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="mt-6" style="text-align:center; font-weight:bold; margin-top: 70px">Chi tiết sản phẩm</h2>
+                <h3 class="card-title" style="font-weight:bold">Điện thoại @Model.Tensp</h3>
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-6">
+                        <div class="white-box text-center"><img style="width:100%" src="@Url.Content(@Model.Anhbia)" class="img-responsive"></div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-6">
+                        <h3 class="box-title mt-5">@Model.Tensp</h3>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <br />
+                        <p>@Model.Mota</p>
+                        <h2 style="color:red" class="mt-5">
+                            $@Model.Giatien<small class="text-success"> (15% off)</small>
+                        </h2>
+                        <h4 style="color:orange">
+                            @if (@Model.Sanphammoi == true)
+                            {
+                                <p>Hàng mới về</p>
+                            }
+                            else
+                            {
+                                <p>Hàng cũ</p>
+                            }
+                        </h4>
+                        <button class=" fa fa-shopping-cart btn btn-primary btn-rounded">  Mua ngay</button>
+                        <h3 class="box-title mt-5">Số lượng chỉ còn @Model.Soluong toàn quốc!</h3>
+
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Thẻ sim: </th>
+                                    <td>@Model.Thesim eSIM, hỗ trợ 5G</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bộ nhớ trong: </th>
+                                    <td>@Model.Bonhotrong GB</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ram: </th>
+                                    <td>@Model.Ram GB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-success"></i> Trả góp 0%</li>
+                            <li><i class="fa fa-check text-success"></i> Freeship toàn quốc</li>
+                            <li><i class="fa fa-check text-success"></i> Hỗ trợ đổi trả trong 6 tháng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

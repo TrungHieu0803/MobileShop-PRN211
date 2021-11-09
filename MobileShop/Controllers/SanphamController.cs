@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MobileShop.Models;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,12 @@ namespace MobileShop.Controllers
             //return View(sanpham.ToPagedList(pageNumber, pageSize));
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            var sanpham = db.Sanphams.Find(id);
+            var hangselected = new SelectList(db.Hangsanxuats, "Mahang", "Tenhang", sanpham.Mahang);
+            ViewBag.Mahang = hangselected;
+            return View(sanpham);
         }
     }
 }

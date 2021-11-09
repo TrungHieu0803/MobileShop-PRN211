@@ -5687,19 +5687,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DO THANH TRUNG\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+      "projectUniqueName": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
       "projectName": "MobileShop",
-      "projectPath": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
-      "packagesPath": "C:\\Users\\DO THANH TRUNG\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT_Uni\\Sem5\\codeC#_Trung\\script_project\\MobileShop-PRN211\\MobileShop\\obj\\",
+      "projectPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DO THANH TRUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
