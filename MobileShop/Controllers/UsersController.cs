@@ -11,7 +11,6 @@ namespace MobileShop.Controllers
     public class UsersController : Controller
     {
         MobileShopContext db = new MobileShopContext();
-
         // Login 
         public IActionResult Index()
         {
@@ -22,29 +21,25 @@ namespace MobileShop.Controllers
         public IActionResult Login()
         {
             Nguoidung model = new Nguoidung();
-            return View(model);
+            return View();
         }
         [HttpPost]
-        public IActionResult Login(Nguoidung model)
+        public IActionResult Login(Nguoidung model )
         {
-
-
             //So sánh Account
-            var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
-            //Tao 1 Session 
-            if (data != null)
+            if(ModelState.IsValid /*&& model.Email=="quoc@gmail.com" && model.Matkhau=="123456"*/)
             {
+
+                
+                var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
+                //Tao 1 Session 
                 HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(model));
-
-
-
-
                 return RedirectToAction("index", "Home");
 
             }
             else
             {
-                return RedirectToAction("Register");
+                return View(model);
             }
         }
 
@@ -54,16 +49,16 @@ namespace MobileShop.Controllers
         public IActionResult Register()
         {
             Nguoidung nguoidung = new Nguoidung();
-            return View(nguoidung);
+            return View();
         }
-
+        
         [HttpPost]
-
+        
         public ActionResult Register(Nguoidung nguoidung)
         {
             if (ModelState.IsValid)
             {
-                var check = db.Nguoidungs.FirstOrDefault(s => s.Email == nguoidung.Email);
+                var check = db.Nguoidungs.FirstOrDefault(s => s.Email == nguoidung.Email );
                 Nguoidung user = new Nguoidung()
                 {
                     Hoten = nguoidung.Hoten,
@@ -75,12 +70,12 @@ namespace MobileShop.Controllers
                 };
                 if (check == null)
                 {
-
-                    db.Nguoidungs.Add(user);
-
+              
+                    db.Nguoidungs.Add(nguoidung);
+                    
                     db.SaveChanges();
-                    HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(user));
-                    return RedirectToAction("index", "Home");
+                    HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(nguoidung));
+                    return RedirectToAction("index","Login");
                 }
                 else
                 {
@@ -94,13 +89,6 @@ namespace MobileShop.Controllers
 
 
         }
-        public ActionResult Logout(Nguoidung nguoidung)
-        {
-
-            HttpContext.Session.Clear();
-            return View("Login");
-        }
 
     }
-
 }
