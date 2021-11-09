@@ -1,93 +1,169 @@
 ﻿@using MobileShop.Models
-@model List<Sanpham>
+@model X.PagedList.IPagedList<MobileShop.Models.Sanpham>
+@using X.PagedList.Mvc.Core;
 @{
-    ViewBag.Title = "List Product";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Product List";
+
+    var listIphone = ViewData["iphone"] as List<Sanpham>;
+    var listSumsung = ViewData["samsung"] as List<Sanpham>;
+    var listXiaomi = ViewData["xiaomi"] as List<Sanpham>;
 }
-<h2 class="mt-2" style="text-align:center">Danh Sách sản phẩm</h2>
 
-<table class="table table-bordered">
-    <tr>
-        <th>Mã sản phẩm</th>
-        <th>Tên sản phẩm</th>
-        <th>Giá tiền</th>
-        <th>Số lượng</th>
-        <th>Mô tả</th>
-        <th>Thẻ sim</th>
-        <th>Bộ nhớ trong</th>
-        <th>Sản phẩm mới</th>
-        <th>Ram</th>
-        <th>Ảnh bìa</th>
-        <th>Mua hàng</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Masp</td>
-            <td>@item.Tensp</td>
-            <td>@item.Giatien</td>
-            <td>@item.Soluong</td>
-            <td>@item.Mota</td>
-            <td>@item.Thesim</td>
-            <td>@item.Bonhotrong</td>
-            @if (item.Sanphammoi == true)
-            {
-                <td>Hàng mới về</td>
-            }
-            else
-            {
-                <td>Hàng cũ</td>
-            }
-            <td>@item.Ram</td>
-            <td>
-                <img src="@Url.Content(item.Anhbia)" width="50" height="50" />
-            </td>
-            <td>
-                <button>Mua hàng</button>
-            </td>
-        </tr>
-    }
-</table>
 <br />
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive" src="https://cdn.tgdd.vn/2021/11/banner/830-300-830x300-2.png" />
+    </div>
+    <div class="col-md-4">
+        <img src="https://cdn.tgdd.vn/2021/11/banner/laptopdesk(3)-340x340.jpg" class="img-responsive" alt="" />
 
-<section class="product-area li-laptop-product li-laptop-product-2 pb-45">
-    <div class="container">
-        <div class="row">
-                <div class="row">
-                    @*<div class="col-lg-12">*@
-                        @foreach (var item in Model)
-                        {
-                            <!-- single-product-wrap start -->
-                            <div class="single-product-wrap">
-                                <div class="product-image">
-                                    <a href="single-product.html">
-                                        <img src="@Url.Content(item.Anhbia)" width="50" height="50" />
-                                    </a>
-                                </div>
-                                <div class="product_desc">
-                                    <div class="product_desc_info">
-                                        <div class="product-review">
-                                            <h5 class="manufacturer">
-                                                <a href="shop-left-sidebar.html">@item.Tensp</a>
-                                            </h5>
-                                        </div>
-                                        <h4><a class="product_name" href="single-product.html">@item.Mota</a></h4>
-                                        <div class="price-box">
-                                            <span class="new-price">@item.Giatien</span>
-                                        </div>
-                                    </div>
-                                    <div class="add-actions">
-                                        <ul class="add-actions-link">
-                                            <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        }                        
-                    @*</div>*@                        
-                </div>
+    </div>
+</div>
+<div>
+    <img class="img-responsive" src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44.png" />
+</div>
+<br />
+<div class="spnoibat">
+    <div class="row">
+
+        <h3> SẢN PHẨM NỔI BẬT</h3>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/213033/iphone-12-pro-max-xanh-duong-new-600x600-600x600.jpg" class="img-responsive" alt="" />
         </div>
-     </div>
-</section>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/248283/samsung-galaxy-z-flip-3-green-1-600x600.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/248284/samsung-galaxy-z-fold-3-green-1-600x600.jpg" class="img-responsive" alt="" />
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="shop-sidebar">
+
+        <div class="single-widget category">
+            <h3 class="title">Categories</h3>
+            <ul class="categor-list">
+                <li><a href="#">T-shirts</a></li>
+                <li><a href="#">jeans</a></li>
+                <li><a href="#">sneakers</a></li>
+            </ul>
+        </div>
+
+        <div class="single-widget category">
+            <h3 class="title">Product</h3>
+            <ul class="categor-list">
+                <li><a href="shopGrid?pname=gucci">Gucci</a></li>
+                <li><a href="shopGrid?pname=jordan">Jordan</a></li>
+                <li><a href="shopGrid?pname=versace">Versace</a></li>
+                <li><a href="shopGrid?pname=vans">Vans</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="dt col-lg-9">
+    <div class="dt col-lg-12">
+        <div class="row">
+            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> IPHONE </h3></div>
+            @foreach (Sanpham item in listIphone)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <center>
+                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
+                        <br />
+                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
+                        <h3 style="color:red">Giá: @item.Giatien</h3>
+                        <h3 style="text-decoration: underline">
+                            @if (item.Sanphammoi == true)
+                            {
+                                <td>Hàng mới về</td>
+                            }
+                            else
+                            {
+                                <td>Hàng cũ</td>
+                            }
+                        </h3>
+                        <br />
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                        {
+                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
+                        }
+                    </center>
+                </div>
+            }
+        </div>
+
+        @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+    </div>
+
+    <div class="dt col-lg-12">
+        <div class="row">
+            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Sumsung </h3></div>
+            @foreach (Sanpham item in listSumsung)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <center>
+                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
+                        <br />
+                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
+                        <h3 style="color:red">Giá: @item.Giatien</h3>
+                        <h3 style="text-decoration: underline">
+                            @if (item.Sanphammoi == true)
+                            {
+                                <td>Hàng mới về</td>
+                            }
+                            else
+                            {
+                                <td>Hàng cũ</td>
+                            }
+                        </h3>
+                        <br />
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                        {
+                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
+                        }
+                    </center>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="dt col-lg-12">
+        <div class="row">
+            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Xiaomi </h3></div>
+            @foreach (Sanpham item in listXiaomi)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <center>
+                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
+                        <br />
+                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
+                        <h3 style="color:red">Giá: @item.Giatien</h3>
+                        <h3 style="text-decoration: underline">
+                            @if (item.Sanphammoi == true)
+                            {
+                                <p>Hàng mới về</p>
+                            }
+                            else
+                            {
+                                <p>Hàng cũ</p>
+                            }
+                        </h3>
+                        <br />
+                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                        {
+                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
+                        }
+                        <br />
+                    </center>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
 
 

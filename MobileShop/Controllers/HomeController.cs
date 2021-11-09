@@ -17,10 +17,14 @@ namespace MobileShop.Controllers
         {
             _logger = logger;
         }
-
+        MobileShopContext db = new MobileShopContext();
         public IActionResult Index()
         {
+            ViewData["iphone"] = db.Sanphams.Where(n => n.Mahang == 2).Take(4).ToList();
+            ViewData["samsung"] = db.Sanphams.Where(n => n.Mahang == 1).Take(4).ToList();
+            ViewData["xiaomi"] = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
             return View();
+           
         }
 
         public IActionResult Privacy()
