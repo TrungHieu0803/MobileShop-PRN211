@@ -11,7 +11,7 @@ namespace MobileShop.Controllers
     public class UsersController : Controller
     {
         MobileShopContext db = new MobileShopContext();
-
+        // Login 
         public IActionResult Index()
         {
             // khi chưa có quyền sẽ điều hướng về Login
@@ -42,5 +42,44 @@ namespace MobileShop.Controllers
                 return View(model);
             }
         }
+
+
+        //Register
+        [HttpGet]
+        public IActionResult Register()
+        {
+            Nguoidung nguoidung = new Nguoidung();
+            return View();
+        }
+        
+        [HttpPost]
+        
+        public ActionResult Register(Nguoidung nguoidung)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = db.Nguoidungs.FirstOrDefault(s => s.Email == nguoidung.Email );
+                if (check == null)
+                {
+              
+                    db.Nguoidungs.Add(nguoidung);
+                    
+                    db.SaveChanges();
+                    HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(nguoidung));
+                    return RedirectToAction("index","Login");
+                }
+                else
+                {
+                    ViewBag.error = "Email already exists";
+                    return View();
+                }
+
+
+            }
+            return View();
+
+
+        }
+
     }
 }
