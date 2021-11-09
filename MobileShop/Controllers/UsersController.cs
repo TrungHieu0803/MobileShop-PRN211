@@ -26,16 +26,12 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult Login(Nguoidung model )
         {
+            var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
             //So sánh Account
-            if(ModelState.IsValid /*&& model.Email=="quoc@gmail.com" && model.Matkhau=="123456"*/)
+            if (!ModelState.IsValid && data != null)
             {
-
-                
-                var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
-                //Tao 1 Session 
                 HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(model));
-                return RedirectToAction("index", "Home");
-
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -49,7 +45,7 @@ namespace MobileShop.Controllers
         public IActionResult Register()
         {
             Nguoidung nguoidung = new Nguoidung();
-            return View();
+            return View(nguoidung);
         }
         
         [HttpPost]
@@ -71,11 +67,11 @@ namespace MobileShop.Controllers
                 if (check == null)
                 {
               
-                    db.Nguoidungs.Add(nguoidung);
+                    db.Nguoidungs.Add(user);
                     
                     db.SaveChanges();
-                    HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(nguoidung));
-                    return RedirectToAction("index","Login");
+                    HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(user));
+                    return RedirectToAction("Login","Users");
                 }
                 else
                 {
@@ -83,12 +79,13 @@ namespace MobileShop.Controllers
                     return View();
                 }
 
-
             }
             return View();
-
-
         }
-
+        public ActionResult Logout(Nguoidung nguoidung)
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

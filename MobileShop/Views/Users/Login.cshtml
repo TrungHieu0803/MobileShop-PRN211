@@ -11,8 +11,6 @@
             <h1 style="text-align:center;">Login</h1>
             <form asp-controller="Users" asp-action="Login">
                 <div class="card-body">
-
-
                     <div class="form-group">
                         <h4>Email</h4>
                         @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @placeholder = "Email" })

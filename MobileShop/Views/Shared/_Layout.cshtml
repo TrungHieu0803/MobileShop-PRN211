@@ -14,8 +14,8 @@
     <script src="~/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     @using MobileShop.Models
-    @model MobileShop.Models.Nguoidung
-   
+
+
     <style type="text/css">
         body {
             background-color: #F0F0F0;
@@ -79,31 +79,24 @@
 <body>
 
     @{ var u = TempData["User"] as Nguoidung; }
-   
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #19194d ">
-
         <div class="top_header col-md-12">
-
             <div class="row" style="text-align:center">
-
                 @{ if (u != null)
                     {
-        <div class="col-sm-4 col-md-0">
-            Xin chào : @u.Email
+                        <div class="col-sm-4 col-md-0">
+                            Xin chào : @u.Email
+                            <a style="color:red" href="/Users/Logout"> ĐĂNG XUẤT</a>
+                        </div> }
+                    else
+                    {
+                        <div class="col-sm-4 col-md-0">
+                            <a style="color:white" href="/Users/Login"> Đăng nhập</a>
 
-
-            <a style="color:red" href="/Users/Logout"> ĐĂNG XUẤT</a>
-        </div> }
-    else
-    {
-<div class="col-sm-4 col-md-0">
-    <a style="color:white" href="/Users/Login"> Đăng nhập</a>
-
-    <a style="color:white" href="/Users/Register"> Đăng ký</a>
-</div> } }
-
+                            <a style="color:white" href="/Users/Register"> Đăng ký</a>
+                        </div> } 
+                    }
             </div>
-
         </div>
         <div class="container">
 
@@ -115,27 +108,16 @@
                 </button>
                 <img class="navbar-brand" src="https://cdn-icons-png.flaticon.com/512/438/438560.png" width="50" height="50" style="padding:0" />
                 @Html.ActionLink("Mobile Shop - PRN211", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-
             </div>
 
             <div class="navbar-collapse collapse">
 
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" title="dienthoai">
-                            <span>ĐIỆN THOẠI</span>
-                        </a>
+                        <a href="@Url.Action("Index", "Sanpham")">Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="#" title="PHUKIEN">
-                            <span>PHỤ KIỆN</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a style="color:white"
-                           class="nav-link"
-                           href="@Url.Action("Index", "DonHangs")">ĐƠN HÀNG</a>
+                        <a href="@Url.Action("Index", "DonHangs")">Đơn Hàng</a>
                     </li>
                     <li>
                         @*@Html.ActionLink("GioHangPartial", "GioHang", new { @class = "giohang" })*@
@@ -143,8 +125,8 @@
                         @*<a asp-controller="Product" asp-action="Index">Products</a>*@
                     </li>
                     <li>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search here ..." aria-label="Search">
+                        <form asp-controller="Sanpham" asp-action="Index" class="form-inline my-2 my-lg-0">
+                            <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search here ..." aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </li>

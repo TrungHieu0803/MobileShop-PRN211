@@ -12,27 +12,36 @@ namespace MobileShop.Controllers
     public class SanphamController : Controller
     {
 
-        MobileShopContext db = new MobileShopContext();
+        MobileShopContext context = new MobileShopContext();
 
-        public IActionResult Index()
+        public ActionResult Index(int? page, int? Mahang, string? keyword)
         {
-            ViewData["iphone"] = db.Sanphams.Where(n => n.Mahang == 1).Take(4).ToList();
-            ViewData["samsung"] = db.Sanphams.Where(n => n.Mahang == 2).Take(4).ToList();
-            ViewData["xiaomi"] = db.Sanphams.Where(n => n.Mahang == 4).Take(4).ToList();
-            return View();
-
-            //if (page == null) page = 1;
-            //var sanpham = db.Sanphams.OrderBy(x => x.Masp);
-            //int pageSize = 8;
-            //int pageNumber = (page ?? 1);
-            //ViewBag.Hangsanxuats = db.Hangsanxuats.ToList();
-            //return View(sanpham.ToPagedList(pageNumber, pageSize));
+            if(Mahang == null)
+            {
+                if (keyword == null) keyword = "";
+                if (page == null) page = 1;
+                var sanpham = context.Sanphams.Where(s => s.Tensp.ToLower().Contains(keyword.ToLower())).OrderBy(x => x.Masp);
+                int pageSize = 9;
+                int pageNumber = (page ?? 1);
+                ViewBag.Hangsanxuats = context.Hangsanxuats.ToList();
+                return View(sanpham.ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                if (keyword == null) keyword = "";
+                if (page == null) page = 1;
+                var sanpham = context.Sanphams.Where(s => s.Tensp.ToLower().Contains(keyword.ToLower()) && s.Mahang == Mahang).OrderBy(x => x.Masp);
+                int pageSize = 9;
+                int pageNumber = (page ?? 1);
+                ViewBag.Hangsanxuats = context.Hangsanxuats.ToList();
+                return View(sanpham.ToPagedList(pageNumber, pageSize));
+            }
         }
 
         public IActionResult Detail(int id)
         {
-            var sanpham = db.Sanphams.Find(id);
-            var hangselected = new SelectList(db.Hangsanxuats, "Mahang", "Tenhang", sanpham.Mahang);
+            var sanpham = context.Sanphams.Find(id);
+            var hangselected = new SelectList(context.Hangsanxuats, "Mahang", "Tenhang", sanpham.Mahang);
             ViewBag.Mahang = hangselected;
             return View(sanpham);
         }

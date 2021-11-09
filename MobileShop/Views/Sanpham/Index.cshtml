@@ -3,10 +3,6 @@
 @using X.PagedList.Mvc.Core;
 @{
     ViewBag.Title = "Product List";
-
-    var listIphone = ViewData["iphone"] as List<Sanpham>;
-    var listSumsung = ViewData["samsung"] as List<Sanpham>;
-    var listXiaomi = ViewData["xiaomi"] as List<Sanpham>;
 }
 
 <br />
@@ -23,147 +19,73 @@
     <img class="img-responsive" src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44.png" />
 </div>
 <br />
-<div class="spnoibat">
-    <div class="row">
-
-        <h3> SẢN PHẨM NỔI BẬT</h3>
-        <div class="col-md-4">
-            <img src="https://cdn.tgdd.vn/Products/Images/42/213033/iphone-12-pro-max-xanh-duong-new-600x600-600x600.jpg" class="img-responsive" alt="" />
-        </div>
-        <div class="col-md-4">
-            <img src="https://cdn.tgdd.vn/Products/Images/42/248283/samsung-galaxy-z-flip-3-green-1-600x600.jpg" class="img-responsive" alt="" />
-        </div>
-        <div class="col-md-4">
-            <img src="https://cdn.tgdd.vn/Products/Images/42/248284/samsung-galaxy-z-fold-3-green-1-600x600.jpg" class="img-responsive" alt="" />
+<div class="row">
+    <div class="col-lg-3 p-0">
+        <table class="table table-light table-hover border-bottom-10">
+            <thead>
+                <tr>
+                    <th class="text-center navbar-brand bg-secondary">Danh mục</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center bg-dark">
+                        <a class="navbar-brand text-warning" href="/Sanpham">Tất cả sản phẩm</a>
+                    </td>
+                </tr>
+                @foreach (var item in ViewBag.Hangsanxuats)
+                {
+                    <tr>
+                        <td class="text-center  bg-dark">
+                            @{ string tenhang = item.Tenhang;}
+                            @Html.ActionLink(@tenhang, "Index", "Sanpham" , new { Mahang = item.Mahang }, new { @class = "navbar-brand text-warning" })
+                            @*<a class="navbar-brand text-warning" href="/Sanpham/Index/@item.Mahang">@item.Tenhang</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="dt col-lg-9">
+        <div class="dt col-lg-12">
+            <div class="row">
+                <h3 style="text-align: center; background-color: palevioletred; border-radius: 30px; color: whitesmoke"> Danh sách sản phẩm </h3>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4" style="padding:5px; border: 1px solid grey; background-color:lavender; border-radius:20px">
+                        <div>
+                            <img style="width: 100%; margin-top: 15px;" src="@Url.Content(item.Anhbia)" />
+                            <div class="p-4">
+                                <div class="text-center">
+                                    <h4><a style="font-size:20px; color:black; text-align: center" href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></h4>
+                                    <span>Giá: @item.Giatien</span>
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                                    {
+                                        if (item.Soluong < 1)
+                                        {
+                                            <button disabled class="btn btn-outline-dark text-dark">
+                                                <i class="bi-cart-fill me-1"></i>Hết hàng
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <input class="btn btn-danger" type="submit" value="Mua hàng" id="bgnGioHang" />
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="text-center" style="margin-top:20px">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
         </div>
     </div>
 </div>
-
-<div class="col-lg-3">
-    <div class="shop-sidebar">
-
-        <div class="single-widget category">
-            <h3 class="title">Categories</h3>
-            <ul class="categor-list">
-                <li><a href="#">T-shirts</a></li>
-                <li><a href="#">jeans</a></li>
-                <li><a href="#">sneakers</a></li>
-            </ul>
-        </div>
-
-        <div class="single-widget category">
-            <h3 class="title">Product</h3>
-            <ul class="categor-list">
-                <li><a href="shopGrid?pname=gucci">Gucci</a></li>
-                <li><a href="shopGrid?pname=jordan">Jordan</a></li>
-                <li><a href="shopGrid?pname=versace">Versace</a></li>
-                <li><a href="shopGrid?pname=vans">Vans</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="dt col-lg-9">
-    <div class="dt col-lg-12">
-        <div class="row">
-            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> IPHONE </h3></div>
-            @foreach (Sanpham item in listIphone)
-            {
-                <div class="col-md-3 col-sm-6">
-                    <center>
-                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
-                        <br />
-                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
-                        <h3 style="color:red">Giá: @item.Giatien</h3>
-                        <h3 style="text-decoration: underline">
-                            @if (item.Sanphammoi == true)
-                            {
-                                <td>Hàng mới về</td>
-                            }
-                            else
-                            {
-                                <td>Hàng cũ</td>
-                            }
-                        </h3>
-                        <br />
-                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
-                        {
-                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
-                        }
-                    </center>
-                </div>
-            }
-        </div>
-
-        @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
-    </div>
-
-    <div class="dt col-lg-12">
-        <div class="row">
-            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Sumsung </h3></div>
-            @foreach (Sanpham item in listSumsung)
-            {
-                <div class="col-md-3 col-sm-6">
-                    <center>
-                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
-                        <br />
-                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
-                        <h3 style="color:red">Giá: @item.Giatien</h3>
-                        <h3 style="text-decoration: underline">
-                            @if (item.Sanphammoi == true)
-                            {
-                                <td>Hàng mới về</td>
-                            }
-                            else
-                            {
-                                <td>Hàng cũ</td>
-                            }
-                        </h3>
-                        <br />
-                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
-                        {
-                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
-                        }
-                    </center>
-                </div>
-            }
-        </div>
-    </div>
-
-    <div class="dt col-lg-12">
-        <div class="row">
-            <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Xiaomi </h3></div>
-            @foreach (Sanpham item in listXiaomi)
-            {
-                <div class="col-md-3 col-sm-6">
-                    <center>
-                        <a href="/Sanpham/Detail/@item.Masp"><img src="@Url.Content(item.Anhbia)" width="50" height="50" /></a>
-                        <br />
-                        <p style="font-size:20px"><a href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></p>
-                        <h3 style="color:red">Giá: @item.Giatien</h3>
-                        <h3 style="text-decoration: underline">
-                            @if (item.Sanphammoi == true)
-                            {
-                                <p>Hàng mới về</p>
-                            }
-                            else
-                            {
-                                <p>Hàng cũ</p>
-                            }
-                        </h3>
-                        <br />
-                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
-                        {
-                            <input type="submit" value="Mua hàng" id="bgnGioHang" />
-                        }
-                        <br />
-                    </center>
-                </div>
-            }
-        </div>
-    </div>
-</div>
-
-
-
