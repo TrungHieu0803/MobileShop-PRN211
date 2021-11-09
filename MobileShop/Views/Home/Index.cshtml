@@ -1,8 +1,115 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using MobileShop.Models
+@{
+    ViewBag.Title = "Home page";
+   
+    var listIphone = ViewData["iphone"] as List<Sanpham>;
+    var listSumsung = ViewData["samsung"] as List<Sanpham>;
+    var listXiaomi = ViewData["xiaomi"] as List<Sanpham>;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Coree</a>.</p>
+
+
+<br />
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive" src="https://cdn.tgdd.vn/2021/11/banner/830-300-830x300-2.png" />
+    </div>
+    <div class="col-md-4">
+        <img src="https://cdn.tgdd.vn/2021/11/banner/laptopdesk(3)-340x340.jpg" class="img-responsive" alt="" />
+
+    </div>
 </div>
+<div>
+    <img class="img-responsive" src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44.png" />
+</div>
+<br />
+<div class="spnoibat">
+    <div class="row">
+
+        <h3> SẢN PHẨM NỔI BẬT</h3>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/213033/iphone-12-pro-max-xanh-duong-new-600x600-600x600.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/248283/samsung-galaxy-z-flip-3-green-1-600x600.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn.tgdd.vn/Products/Images/42/248284/samsung-galaxy-z-fold-3-green-1-600x600.jpg" class="img-responsive" alt="" />
+        </div>
+    </div>
+</div>
+<div class="danhmuc">
+
+</div>
+<div class="dt">
+    <div class="row">
+        <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> IPHONE </h3></div>
+        @foreach (Sanpham item in listIphone)
+        {
+            <div class="col-md-3 col-sm-6">
+                <center>
+                    <h3>@item.Tensp</h3>
+                    <h3 style="color:red">Giá: @item.Giatien</h3>
+                    <br />
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                    {
+                        <input type="submit" value="Mua hàng" id="bgnGioHang" />
+                    }
+                </center>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+<div class="dt">
+    <div class="row">
+        <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Sumsung </h3></div>
+        @foreach (Sanpham item in listSumsung)
+        {
+            <div class="col-md-3 col-sm-6">
+                <center>
+                    <h3>@item.Tensp</h3>
+                    <h3 style="color:red">Giá: @item.Giatien</h3>
+                    <br />
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                    {
+                        <input type="submit" value="Mua hàng" id="bgnGioHang" />
+
+                    }
+                </center>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<div class="dt">
+    <div class="row">
+        <div class=" bg-danger"><h3 style="padding-left: 20px; background-color: #5B6E6E; border-radius: 30px "> Xiaomi </h3></div>
+        @foreach (Sanpham item in listXiaomi)
+        {
+            <div class="col-md-3 col-sm-6">
+                <center>
+                    <h3>@item.Tensp</h3>
+                    <h3 style="color:red">Giá: @item.Giatien</h3>
+                    <br />
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
+                    {
+                        <input type="submit" value="Mua hàng" id="bgnGioHang" />
+
+                    }
+                </center>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+
