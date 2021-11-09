@@ -13,7 +13,8 @@
     <script src="~/js/jquery-3.4.1.js"></script>
     <script src="~/js/jquery-3.4.1.min.js"></script>
     @using MobileShop.Models
-
+    @model MobileShop.Models.Nguoidung
+   
     <style type="text/css">
         body {
             background-color: #F0F0F0;
@@ -76,8 +77,8 @@
 
 <body>
 
-    @{ var u = TempData["user"] as Nguoidung; }
-
+    @{ var u = TempData["User"] as Nguoidung; }
+   
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #19194d ">
 
         <div class="top_header col-md-12">
@@ -90,14 +91,14 @@
             Xin chào : @u.Email
 
 
-            <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+            <a style="color:red" href="/Users/Logout"> ĐĂNG XUẤT</a>
         </div> }
     else
     {
 <div class="col-sm-4 col-md-0">
-    <a style="color:white" href="/User/Dangky"> Đăng ký</a>
+    <a style="color:white" href="/Users/Login"> Đăng nhập</a>
 
-    <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
+    <a style="color:white" href="/Users/Register"> Đăng ký</a>
 </div> } }
 
             </div>

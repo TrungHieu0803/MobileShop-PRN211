@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MobileShop.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,6 +25,8 @@ namespace MobileShop.Controllers
             ViewData["iphone"] = db.Sanphams.Where(n => n.Mahang == 2).Take(4).ToList();
             ViewData["samsung"] = db.Sanphams.Where(n => n.Mahang == 1).Take(4).ToList();
             ViewData["xiaomi"] = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
+            if(HttpContext.Session.GetString("UserSession") != null)
+            TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             return View();
            
         }
