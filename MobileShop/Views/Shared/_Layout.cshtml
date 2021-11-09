@@ -1,5 +1,162 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -PRN211- group 6</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel=" stylesheet" href="~/css/Style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/jquery-3.4.1.js"></script>
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    @using MobileShop.Models
+
+    <style type="text/css">
+        body {
+            background-color: #F0F0F0;
+        }
+
+        .navbar-inverse {
+            background-color: #39B54A;
+            border-color: #39B54A;
+        }
+
+        .top_header {
+            background-color: black;
+            padding-left: 110px;
+            color: white;
+        }
+
+        .form-inline {
+            float: right;
+            padding-top: 10px;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+            font-size: x-large;
+        }
+
+        .navbar-inverse .navbar-brand {
+            color: white;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+            font-size: large;
+        }
+
+            .navbar-inverse .navbar-nav > li > a:hover {
+                color: black;
+            }
+
+        .navbar-brand {
+            color: cadetblue;
+        }
+
+        .spnoibat {
+            background-color: white;
+        }
+
+            .spnoibat h3 {
+                padding-left: 30px;
+            }
+
+        .giohang {
+            color: white;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    @{ var u = TempData["user"] as Nguoidung; }
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #19194d ">
+
+        <div class="top_header col-md-12">
+
+            <div class="row" style="text-align:center">
+
+                @{ if (u != null)
+                    {
+        <div class="col-sm-4 col-md-0">
+            Xin chào : @u.Email
+
+
+            <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+        </div> }
+    else
+    {
+<div class="col-sm-4 col-md-0">
+    <a style="color:white" href="/User/Dangky"> Đăng ký</a>
+
+    <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
+</div> } }
+
+            </div>
+
+        </div>
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="https://cdn-icons-png.flaticon.com/512/438/438560.png" width="50" height="50" style="padding:0" />
+                @Html.ActionLink("Mobile Shop - PRN211", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+            </div>
+
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" title="dienthoai">
+                            <span>ĐIỆN THOẠI</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="PHUKIEN">
+                            <span>PHỤ KIỆN</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a style="color:white"
+                           class="nav-link"
+                           href="@Url.Action("Index", "DonHangs")">ĐƠN HÀNG</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink("GioHangPartial", "GioHang", new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div>
+            <img class="img-responsive" src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44-3.png" />
+        </div>
+        <br />
+    </div>
+    <footer style=" background-color: #19194d; color: white">
+        <center> <p>&copy; @DateTime.Now.Year - PRN211 - Group 6</p></center>
+    </footer>
+
+
+
+</body>
+</html>

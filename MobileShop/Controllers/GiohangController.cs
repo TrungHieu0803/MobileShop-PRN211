@@ -4,23 +4,17 @@ using MobileShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
+
 
 namespace MobileShop.Controllers
 {
     public class GiohangController : Controller
     {
         MobileShopContext db = new MobileShopContext();
-         //Lấy giỏ hàng 
+       // Lấy giỏ hàng
         public List<GioHang> LayGioHang()
         {
-            List<GioHang> lstGioHang = HttpContext.Current.Session["GioHang"] as List<GioHang>;
-            if (lstGioHang == null)
-            {
-                //Nếu giỏ hàng chưa tồn tại thì mình tiến hành khởi tao list giỏ hàng (sessionGioHang)
-                lstGioHang = new List<GioHang>();
-                HttpContext.Current.Session["GioHang"] = lstGioHang;
-            }
+            List<GioHang> lstGioHang = SessionHelper.GetObjectFromJson<List<GioHang>>(HttpContext.Session, "GioHang");
             return lstGioHang;
         }
         //Thêm giỏ hàng
@@ -101,11 +95,11 @@ namespace MobileShop.Controllers
         //Xây dựng trang giỏ hàng
         public ActionResult GioHang()
         {
-            if (HttpContext.Current.Session["GioHang"] == null)
+            List<GioHang> lstGioHang = LayGioHang();
+            if (lstGioHang == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            List<GioHang> lstGioHang = LayGioHang();
             return View(lstGioHang);
         }
         //Tính tổng số lượng và tổng tiền
@@ -113,7 +107,7 @@ namespace MobileShop.Controllers
         private int TongSoLuong()
         {
             int iTongSoLuong = 0;
-            List<GioHang> lstGioHang = HttpContext.Current.Session["GioHang"] as List<GioHang>;
+            List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang != null)
             {
                 iTongSoLuong = lstGioHang.Sum(n => n.iSoLuong);
@@ -124,7 +118,7 @@ namespace MobileShop.Controllers
         private double TongTien()
         {
             double dTongTien = 0;
-            List<GioHang> lstGioHang = HttpContext.Current.Session["GioHang"] as List<GioHang>;
+            List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang != null)
             {
                 dTongTien = lstGioHang.Sum(n => n.ThanhTien);
@@ -145,11 +139,12 @@ namespace MobileShop.Controllers
         //Xây dựng 1 view cho người dùng chỉnh sửa giỏ hàng
         public ActionResult SuaGioHang()
         {
-            if (HttpContext.Current.Session["GioHang"] == null)
+            List<GioHang> lstGioHang = LayGioHang();
+            if (lstGioHang == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            List<GioHang> lstGioHang = LayGioHang();
+            
             return View(lstGioHang);
 
         }
@@ -160,20 +155,21 @@ namespace MobileShop.Controllers
         public ActionResult DatHang()
         {
             //Kiểm tra đăng đăng nhập
-            if (HttpContext.Current.Session["use"] == null || HttpContext.Current.Session["use"].ToString() == "")
+            List<GioHang> lstGioHang = LayGioHang();
+            Nguoidung user = SessionHelper.GetObjectFromJson<Nguoidung>(HttpContext.Session, "user");
+            if (user==null)
             {
                 return RedirectToAction("Dangnhap", "User");
             }
             //Kiểm tra giỏ hàng
-            if (HttpContext.Current.Session["GioHang"] == null)
+            if (lstGioHang == null)
             {
                 RedirectToAction("Index", "Home");
             }
             //Thêm đơn hàng
-            Donhang ddh = new Donhang();
-            Nguoidung kh = (Nguoidung)HttpContext.Current.Session["use"];
+            Donhang ddh = new Donhang();           
             List<GioHang> gh = LayGioHang();
-            ddh.MaNguoidung = kh.MaNguoiDung;
+            ddh.MaNguoidung = user.MaNguoiDung;
             ddh.Ngaydat = DateTime.Now;
             Console.WriteLine(ddh);
             db.Donhangs.Add(ddh);
