@@ -5687,19 +5687,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
       "projectName": "MobileShop",
-      "projectPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5777,13 +5777,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

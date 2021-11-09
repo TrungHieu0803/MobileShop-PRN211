@@ -214,8 +214,6 @@ C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\Micr
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.dll
-C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -224,7 +222,6 @@ C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\Syst
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Text.Json.dll
-C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\System.Web.Mvc.Extensions.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
@@ -617,3 +614,21 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netc
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\GiohangPartial.cshtml.g.cs
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\SuaGioHang.cshtml.g.cs
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Detail.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddHang.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DonhangIndex.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditDonhang.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditHang.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditNguoidung.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HangsanxuatIndex.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\NguoidungIndex.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\Giohang.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\GiohangPartial.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Giohang\SuaGioHang.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Detail.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Sanpham\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Users\Login.cshtml.g.cs
+C:\Users\Admin\Desktop\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Users\Register.cshtml.g.cs

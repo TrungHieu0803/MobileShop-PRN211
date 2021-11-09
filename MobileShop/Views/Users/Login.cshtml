@@ -4,34 +4,33 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row justify-content-md-center">
+<div class="row justify-content-md-center" style="margin-top:70px; color:red;">
+    <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">
-                Login
-            </div>
+            <h1 style="text-align:center;">Login</h1>
             <form asp-controller="Users" asp-action="Login">
                 <div class="card-body">
-                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Email)
-                            @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
 
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Matkhau)
-                            @Html.PasswordFor(m => m.Matkhau, new { @class = "form-control", @placeholder = "Password" })
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" class="btn btn-primary" value="Login" />
-                        </div>
-                    }
+
+                    <div class="form-group">
+                        <h4>Email</h4>
+                        @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @placeholder = "Email" })
+
+                    </div>
+                    <div class="form-group">
+                        <h4>Mật Khẩu</h4>
+                        @Html.PasswordFor(model => model.Matkhau, new { @class = "form-control", @placeholder = "Password" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                    </div>
+
                 </div>
             </form>
         </div>
-        </div>
     </div>
+    
+</div>
 
 
