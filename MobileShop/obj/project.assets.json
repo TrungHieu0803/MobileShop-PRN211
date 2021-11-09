@@ -5688,14 +5688,19 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
 =======
     "C:\\Users\\Admin\\.nuget\\packages\\": {}
 >>>>>>> df108e557ff376ab8791026e3ae876790510bed1
+=======
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+>>>>>>> 61c51f42f5536e7788fa4cf1060d30dedb76108f
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
       "projectName": "MobileShop",
@@ -5707,14 +5712,21 @@
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
       "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+=======
+      "projectUniqueName": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+>>>>>>> 61c51f42f5536e7788fa4cf1060d30dedb76108f
       "projectName": "MobileShop",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MobileShop-PRN211\\MobileShop\\obj\\",
+      "projectPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\MobileShop.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\Learning\\FPT U\\Ki5\\PRN211\\Project\\MobileShop-PRN211\\MobileShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> df108e557ff376ab8791026e3ae876790510bed1
+=======
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 61c51f42f5536e7788fa4cf1060d30dedb76108f
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
