@@ -59,6 +59,15 @@ namespace MobileShop.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.Nguoidungs.FirstOrDefault(s => s.Email == nguoidung.Email );
+                Nguoidung user = new Nguoidung()
+                {
+                    Hoten = nguoidung.Hoten,
+                    Email = nguoidung.Email,
+                    Dienthoai = nguoidung.Dienthoai,
+                    Diachi = nguoidung.Diachi,
+                    Matkhau = nguoidung.Matkhau,
+                    Idquyen = 2
+                };
                 if (check == null)
                 {
               
