@@ -12,6 +12,7 @@
     <script src="~/js/jquery.unobtrusive-ajax.js"></script>
     <script src="~/js/jquery-3.4.1.js"></script>
     <script src="~/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     @using MobileShop.Models
 
     <style type="text/css">
@@ -136,7 +137,9 @@
                            href="@Url.Action("Index", "DonHangs")">ĐƠN HÀNG</a>
                     </li>
                     <li>
-                        @Html.ActionLink("GioHangPartial", "GioHang", new { @class = "nav-link" })
+                        @*@Html.ActionLink("GioHangPartial", "GioHang", new { @class = "giohang" })*@
+                        <a asp-controller="GioHang" asp-action="GioHang"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a>
+                        @*<a asp-controller="Product" asp-action="Index">Products</a>*@
                     </li>
                 </ul>
             </div>
