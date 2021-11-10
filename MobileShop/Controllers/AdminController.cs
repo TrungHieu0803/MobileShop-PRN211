@@ -117,6 +117,7 @@ namespace MobileShop.Controllers
             ViewBag.Nguoidungs = context.Nguoidungs.ToList();
             ViewBag.Chitietdonhangs = context.Chitietdonhangs.Where(s => s.Madon == id).ToList();
             ViewBag.Sanphams = context.Sanphams.ToList();
+            ViewBag.Maus = context.Maus.ToList();
             return View(donhang);
         }
         [HttpPost]
