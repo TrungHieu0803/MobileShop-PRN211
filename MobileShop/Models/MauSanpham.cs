@@ -5,16 +5,11 @@ using System.Collections.Generic;
 
 namespace MobileShop.Models
 {
-    public partial class Chitietdonhang
+    public partial class MauSanpham
     {
-        public int Madon { get; set; }
         public int Masp { get; set; }
-        public int? Soluong { get; set; }
-        public decimal? Dongia { get; set; }
-        public decimal? Thanhtien { get; set; }
         public int Mamau { get; set; }
 
-        public virtual Donhang MadonNavigation { get; set; }
         public virtual Mau MamauNavigation { get; set; }
         public virtual Sanpham MaspNavigation { get; set; }
     }
