@@ -21,7 +21,7 @@ namespace MobileShop.Models
         public string Matkhau { get; set; }
         public int? Idquyen { get; set; }
         public string Diachi { get; set; }
-        
+
         public virtual PhanQuyen IdquyenNavigation { get; set; }
         public virtual ICollection<Donhang> Donhangs { get; set; }
         [NotMapped]

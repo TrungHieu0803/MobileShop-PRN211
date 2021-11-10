@@ -4,73 +4,146 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <h2 class="mt-2" style="text-align:center">Sửa sản phẩm</h2>
-@using (Html.BeginForm())
-{
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Masp)
-        <div class="form-group">
-            <label>Tên sản phẩm</label>
-            @Html.EditorFor(model => model.Tensp, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Tensp, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Giá tiền</label>
-            @Html.EditorFor(model => model.Giatien, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Giatien, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Số lượng</label>
-            @Html.EditorFor(model => model.Soluong, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Soluong, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Mô tả</label>
-            @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Thẻ sim</label>
-            @Html.EditorFor(model => model.Thesim, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Thesim, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Bộ nhớ trong</label>
-            @Html.EditorFor(model => model.Bonhotrong, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bonhotrong, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <div class="checkbox">
-                <label>Sản phẩm mới</label>
-                <select asp-for="Sanphammoi" class="form-control" id="Sanphammoi" name="Sanphammoi">
-                    <option>True</option>
-                    <option>False</option>
-                </select>
-                @Html.ValidationMessageFor(model => model.Sanphammoi, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal row">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Masp)
+                <div class="form-group col-md-6">
+                    <label>Tên sản phẩm</label>
+                    @Html.EditorFor(model => model.Tensp, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tensp, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Giá tiền</label>
+                    @Html.EditorFor(model => model.Giatien, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Giatien, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Số lượng</label>
+                    @Html.EditorFor(model => model.Soluong, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Soluong, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Ảnh</label>
+                    @Html.EditorFor(model => model.Anhbia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Anhbia, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Ram</label>
+                    @Html.EditorFor(model => model.Ram, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ram, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Bộ nhớ trong</label>
+                    @Html.EditorFor(model => model.Bonhotrong, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Bonhotrong, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Thẻ sim</label>
+                    <select asp-for="Thesim" class="form-control" id="Thesim" name="Thesim">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Thesim, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Sản phẩm mới</label>
+                    <select asp-for="Sanphammoi" class="form-control" id="Sanphammoi" name="Sanphammoi">
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Sanphammoi, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Hãng sản xuất</label>
+                    @Html.DropDownList("Mahang", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Mahang, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Mô tả</label>
+                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 mb-1">
+                        <input type="submit" value="Sửa" class="btn btn-success" />
+                        <a href="/Admin/Index"><button class="btn btn-danger">Hủy</button></a>
+                    </div>
+                    @Html.ActionLink("Xoá sản phẩm", "DeleteProduct", new { id = Model.Masp })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>Ram</label>
-            @Html.EditorFor(model => model.Ram, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Ram, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Ảnh</label>
-            @Html.EditorFor(model => model.Anhbia, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Anhbia, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label>Hãng sản xuất</label>
-            @Html.DropDownList("Mahang", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Mahang, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 mb-1">
-                <input type="submit" value="Sửa" class="btn btn-success" />
-                <a href="/Admin/Index"><button class="btn btn-danger">Hủy</button></a>
-            </div>
-            @Html.ActionLink("Xoá sản phẩm", "DeleteProduct", new { id = Model.Masp })
+        }
+    </div>
+    <div class="col-md-6">
+        <h4 class="mt-2" style="text-align:center">Chọn màu</h4>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Màu</th>
+                        <th scope="col">Chọn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mau in ViewBag.Mau)
+                    {
+                        <tr>
+                            <td>@mau.Tenmau</td>
+                            @{
+                                int count = 0;
+                                foreach (var maudachon in ViewBag.MauDaChon)
+                                {
+                                    if (maudachon.Mamau == mau.Mamau)
+                                    {
+                                        <td>@Html.ActionLink("Bỏ màu", "DeleteMauSanpham", "Admin", new { masp = Model.Masp, mamau = mau.Mamau })</td>
+                                        count++;
+                                    }
+                                }
+                                if (count == 0)
+                                {
+                                    <td>@Html.ActionLink("Thêm màu", "AddMauSanpham", "Admin", new { masp = Model.Masp, mamau = mau.Mamau })</td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
-}
+    <div class="col-md-6">
+        <form asp-controller="Admin" asp-action="AddAnh">
+            <div class="row">
+                <input type="hidden" name="masp" value="@Model.Masp" />
+                <div class="col-10">
+                    <input type="text" name="url" placeholder="Dán link ảnh" class="form-control" />
+                </div>
+                <div class="col-2">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Thêm ảnh" />
+                </div>
+            </div>
+        </form>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top:5px">
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Link ảnh</th>
+                        <th scope="col">Xóa ảnh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var anh in ViewBag.Anh)
+                    {
+                        <tr>
+                            <td>@anh.Url</td>
+                            <td>@Html.ActionLink("Xóa ảnh", "DeleteAnh", "Admin", new { id = anh.Maanh })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

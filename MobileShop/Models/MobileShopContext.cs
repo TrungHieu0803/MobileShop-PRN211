@@ -59,31 +59,13 @@ namespace MobileShop.Models
 
             modelBuilder.Entity<Chitietdonhang>(entity =>
             {
-                entity.HasKey(e => new { e.Madon, e.Masp });
+                entity.HasKey(e => new { e.Madon, e.Masp, e.Mamau });
 
                 entity.ToTable("Chitietdonhang");
 
                 entity.Property(e => e.Dongia).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Thanhtien).HasColumnType("decimal(18, 0)");
-
-                entity.HasOne(d => d.MadonNavigation)
-                    .WithMany(p => p.Chitietdonhangs)
-                    .HasForeignKey(d => d.Madon)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Chitietdonhang_Donhang");
-
-                entity.HasOne(d => d.MamauNavigation)
-                    .WithMany(p => p.Chitietdonhangs)
-                    .HasForeignKey(d => d.Mamau)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Chitietdonhang_Mau");
-
-                entity.HasOne(d => d.MaspNavigation)
-                    .WithMany(p => p.Chitietdonhangs)
-                    .HasForeignKey(d => d.Masp)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Chitietdonhang_Sanpham");
             });
 
             modelBuilder.Entity<Donhang>(entity =>
@@ -122,21 +104,9 @@ namespace MobileShop.Models
 
             modelBuilder.Entity<MauSanpham>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.Masp, e.Mamau });
 
                 entity.ToTable("Mau_Sanpham");
-
-                entity.HasOne(d => d.MamauNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.Mamau)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Mau_Sanpham_Mau");
-
-                entity.HasOne(d => d.MaspNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.Masp)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Mau_Sanpham_Sanpham");
             });
 
             modelBuilder.Entity<Nguoidung>(entity =>

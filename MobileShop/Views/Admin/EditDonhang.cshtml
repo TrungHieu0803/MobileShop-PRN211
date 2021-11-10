@@ -50,17 +50,16 @@
         </tr>
         @foreach (var item in ViewBag.Chitietdonhangs)
         {
-    <tr>
-        <td>@((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Tensp)</td>
-        <td>
-            <img src="@Url.Content((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Anhbia)" width="50" height="50" />
-        </td>
-        <td>
-            @((ViewBag.Maus as IList<MobileShop.Models.Mau>).FirstOrDefault(c => c.Mamau == item.Mamau).Tenmau)
-        </td><td>@item.Soluong</td>
-        <td>@item.Dongia</td>
-        <td>@item.Thanhtien</td>
-    </tr>
+            <tr>
+                <td>@((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Tensp)</td>
+                <td>
+                    <img src="@Url.Content((ViewBag.Sanphams as IList<MobileShop.Models.Sanpham>).FirstOrDefault(c => c.Masp == item.Masp).Anhbia)" width="50" height="50" />
+                </td>
+                <td>@((ViewBag.Maus as IList<MobileShop.Models.Mau>).FirstOrDefault(c => c.Mamau == item.Mamau).Tenmau)</td>
+                <td>@item.Soluong</td>
+                <td>@item.Dongia</td>
+                <td>@item.Thanhtien</td>
+            </tr>
         }
     </table>
     <br />
