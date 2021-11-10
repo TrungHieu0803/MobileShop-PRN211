@@ -38,7 +38,7 @@
                     <tr>
                         <td class="text-center  bg-dark">
                             @{ string tenhang = item.Tenhang;}
-                            @Html.ActionLink(@tenhang, "Index", "Sanpham" , new { Mahang = item.Mahang }, new { @class = "navbar-brand text-warning" })
+                            @Html.ActionLink(@tenhang, "Index", "Sanpham", new { Mahang = item.Mahang }, new { @class = "navbar-brand text-warning" })
                             @*<a class="navbar-brand text-warning" href="/Sanpham/Index/@item.Mahang">@item.Tenhang</a>*@
                         </td>
                     </tr>
@@ -52,30 +52,32 @@
                 <h3 style="text-align: center; background-color: palevioletred; border-radius: 30px; color: whitesmoke"> Danh sách sản phẩm </h3>
                 @foreach (var item in Model)
                 {
-                    <div class="col-md-4" style="padding:5px; border: 1px solid grey; background-color:lavender; border-radius:20px">
-                        <div>
-                            <img style="width: 100%; margin-top: 15px;" src="@Url.Content(item.Anhbia)" />
-                            <div class="p-4">
-                                <div class="text-center">
-                                    <h4><a style="font-size:20px; color:black; text-align: center" href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></h4>
-                                    <span>Giá: @item.Giatien</span>
+                    <div  class="col-md-4" style="padding: 5px;">
+                        <div style="padding: 5px; border: 1px solid grey; background-color: lavender; border-radius: 20px; height: 450px; margin-bottom: 5px">
+                            <div>
+                                <img style="width: 100%; margin-top: 15px;" src="@Url.Content(item.Anhbia)" />
+                                <div class="p-4">
+                                    <div class="text-center">
+                                        <h4><a style="font-size:20px; color:black; text-align: center" href="/Sanpham/Detail/@item.Masp">@item.Tensp</a></h4>
+                                        <span>Giá: @item.Giatien</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
-                                    {
-                                        if (item.Soluong < 1)
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp }))
                                         {
-                                            <button disabled class="btn btn-outline-dark text-dark">
-                                                <i class="bi-cart-fill me-1"></i>Hết hàng
-                                            </button>
+                                            if (item.Soluong < 1)
+                                            {
+                                                <button disabled class="btn btn-outline-dark text-dark">
+                                                    <i class="bi-cart-fill me-1"></i>Hết hàng
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <input class="btn btn-danger" type="submit" value="Mua hàng" id="bgnGioHang" />
+                                            }
                                         }
-                                        else
-                                        {
-                                            <input class="btn btn-danger" type="submit" value="Mua hàng" id="bgnGioHang" />
-                                        }
-                                    }
+                                    </div>
                                 </div>
                             </div>
                         </div>

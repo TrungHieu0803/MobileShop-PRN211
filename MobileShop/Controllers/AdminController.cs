@@ -5,6 +5,8 @@ using X.PagedList;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace MobileShop.Controllers
 {
@@ -13,6 +15,8 @@ namespace MobileShop.Controllers
         MobileShopContext context = new MobileShopContext();
         public ActionResult Index(int? page)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             if (page == null) page = 1;
             var sanpham = context.Sanphams.OrderBy(x => x.Masp);
             int pageSize = 8;
@@ -22,6 +26,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult AddProduct()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var hangselected = new SelectList(context.Hangsanxuats, "Mahang", "Tenhang");
             ViewBag.Mahang = hangselected;
             return View();
@@ -29,6 +35,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public ActionResult AddProduct(Sanpham sanpham)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 context.Sanphams.Add(sanpham);
@@ -42,6 +50,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult EditProduct(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var sanpham = context.Sanphams.Find(id);
             var hangselected = new SelectList(context.Hangsanxuats, "Mahang", "Tenhang", sanpham.Mahang);
             ViewBag.Mahang = hangselected;
@@ -50,6 +60,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public ActionResult EditProduct(Sanpham sanpham)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var sanphamcu = context.Sanphams.Find(sanpham.Masp);
@@ -72,6 +84,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult DeleteProduct(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var sanpham = context.Sanphams.FirstOrDefault(s => s.Masp == id);
@@ -86,6 +100,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult DonhangIndex(int? page)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             if (page == null) page = 1;
             var donhang = context.Donhangs.ToList();
             int pageSize = 8;
@@ -95,6 +111,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult EditDonhang(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var donhang = context.Donhangs.Find(id);
             ViewBag.Nguoidungs = context.Nguoidungs.ToList();
             ViewBag.Chitietdonhangs = context.Chitietdonhangs.Where(s => s.Madon == id).ToList();
@@ -104,6 +122,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public ActionResult EditDonhang(Donhang donhang)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var donhangcu = context.Donhangs.Find(donhang.Madon);
@@ -120,6 +140,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult NguoidungIndex(int? page)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             if (page == null) page = 1;
             var nguoidung = context.Nguoidungs.Include(x => x.IdquyenNavigation);
             int pageSize = 8;
@@ -129,6 +151,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult EditNguoidung(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var nguoidung = context.Nguoidungs.Find(id);
             var quyenselected = new SelectList(context.PhanQuyens, "Idquyen", "TenQuyen", nguoidung.Idquyen);
             ViewBag.IDQuyen = quyenselected;
@@ -137,6 +161,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public ActionResult EditNguoidung(Nguoidung nguoidung)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var nguoidungcu = context.Nguoidungs.Find(nguoidung.MaNguoiDung);
@@ -156,6 +182,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult DeleteNguoidung(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var nguoidung = context.Nguoidungs.FirstOrDefault(s => s.MaNguoiDung == id);
@@ -171,6 +199,8 @@ namespace MobileShop.Controllers
 
         public ActionResult HangsanxuatIndex(int? page)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             if (page == null) page = 1;
             var hangsanxuat = context.Hangsanxuats.ToList();
             int pageSize = 8;
@@ -181,6 +211,8 @@ namespace MobileShop.Controllers
 
         public ActionResult EditHang(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var hangsanxuat = context.Hangsanxuats.Find(id);
             
             
@@ -189,6 +221,8 @@ namespace MobileShop.Controllers
         [HttpPost]
         public ActionResult EditHang(Hangsanxuat hangsanxuat)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var hangcu = context.Hangsanxuats.Find(hangsanxuat.Mahang);
@@ -205,6 +239,8 @@ namespace MobileShop.Controllers
         }
         public ActionResult DeleteHang(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 var hangsanxuat = context.Hangsanxuats.FirstOrDefault(s => s.Mahang == id);
@@ -220,12 +256,16 @@ namespace MobileShop.Controllers
 
         public ActionResult AddHang()
         {
-            
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
+
             return View();
         }
         [HttpPost]
         public ActionResult AddHang(Hangsanxuat hangsanxuat)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             try
             {
                 context.Hangsanxuats.Add(hangsanxuat);

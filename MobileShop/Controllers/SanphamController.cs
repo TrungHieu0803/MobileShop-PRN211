@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MobileShop.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace MobileShop.Controllers
                 int pageSize = 9;
                 int pageNumber = (page ?? 1);
                 ViewBag.Hangsanxuats = context.Hangsanxuats.ToList();
+                if (HttpContext.Session.GetString("UserSession") != null)
+                    TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
+                
                 return View(sanpham.ToPagedList(pageNumber, pageSize));
             }
             else
@@ -40,6 +45,8 @@ namespace MobileShop.Controllers
 
         public IActionResult Detail(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             var sanpham = context.Sanphams.Find(id);
             var hangselected = new SelectList(context.Hangsanxuats, "Mahang", "Tenhang", sanpham.Mahang);
             ViewBag.Mahang = hangselected;

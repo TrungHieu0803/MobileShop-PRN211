@@ -26,11 +26,15 @@ namespace MobileShop.Controllers
         [HttpPost]
         public IActionResult Login(Nguoidung model )
         {
-            var data = db.Nguoidungs.Where(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau)).ToList();
+            Nguoidung data = db.Nguoidungs.SingleOrDefault(s => s.Email.Equals(model.Email) && s.Matkhau.Equals(model.Matkhau));
             //So sánh Account
             if (!ModelState.IsValid && data != null)
             {
                 HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(model));
+                if (data.Idquyen == 1)
+                {
+                    return RedirectToAction("index", "Admin");
+                }
                 return RedirectToAction("Index", "Home");
             }
             else

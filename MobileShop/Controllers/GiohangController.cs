@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MobileShop.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,13 @@ namespace MobileShop.Controllers
 {
     public class GiohangController : Controller
     {
+
         MobileShopContext db = new MobileShopContext();
        // Lấy giỏ hàng
         public List<GioHang> LayGioHang()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             List<GioHang> lstGioHang = SessionHelper.GetObjectFromJson<List<GioHang>>(HttpContext.Session, "GioHang");
             if(lstGioHang == null)
             {
@@ -25,6 +29,8 @@ namespace MobileShop.Controllers
         //Thêm giỏ hàng
         public ActionResult ThemGioHang(int iMasp, string strURL)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == iMasp);
             if (sp == null)
             {
@@ -53,6 +59,8 @@ namespace MobileShop.Controllers
         //Cập nhật giỏ hàng 
         public ActionResult CapNhatGioHang(int iMaSP, FormCollection f)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             //Kiểm tra masp
             Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == iMaSP);
             //Nếu get sai masp thì sẽ trả về trang lỗi 404
@@ -76,6 +84,8 @@ namespace MobileShop.Controllers
         //Xóa giỏ hàng
         public ActionResult XoaGioHang(int iMaSP)
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             //Kiểm tra masp
             Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == iMaSP);
             //Nếu get sai masp thì sẽ trả về trang lỗi 404
@@ -102,6 +112,8 @@ namespace MobileShop.Controllers
         //Xây dựng trang giỏ hàng
         public ActionResult GioHang()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang == null)
             {
@@ -113,6 +125,8 @@ namespace MobileShop.Controllers
         //Tính tổng số lượng
         private int TongSoLuong()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             int iTongSoLuong = 0;
             List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang != null)
@@ -124,6 +138,8 @@ namespace MobileShop.Controllers
         //Tính tổng thành tiền
         private double TongTien()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             double dTongTien = 0;
             List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang != null)
@@ -135,6 +151,8 @@ namespace MobileShop.Controllers
         //tạo partial giỏ hàng
         public ActionResult GioHangPartial()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             if (TongSoLuong() == 0)
             {
                 return PartialView();
@@ -146,6 +164,8 @@ namespace MobileShop.Controllers
         //Xây dựng 1 view cho người dùng chỉnh sửa giỏ hàng
         public ActionResult SuaGioHang()
         {
+            if (HttpContext.Session.GetString("UserSession") != null)
+                TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             List<GioHang> lstGioHang = LayGioHang();
             if (lstGioHang == null)
             {
