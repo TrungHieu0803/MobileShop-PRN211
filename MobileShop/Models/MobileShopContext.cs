@@ -38,7 +38,7 @@ namespace MobileShop.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Vietnamese_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Anh>(entity =>
             {
@@ -66,6 +66,24 @@ namespace MobileShop.Models
                 entity.Property(e => e.Dongia).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Thanhtien).HasColumnType("decimal(18, 0)");
+
+                entity.HasOne(d => d.MadonNavigation)
+                    .WithMany(p => p.Chitietdonhangs)
+                    .HasForeignKey(d => d.Madon)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Chitietdonhang_Donhang");
+
+                entity.HasOne(d => d.MamauNavigation)
+                    .WithMany(p => p.Chitietdonhangs)
+                    .HasForeignKey(d => d.Mamau)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Chitietdonhang_Mau");
+
+                entity.HasOne(d => d.MaspNavigation)
+                    .WithMany(p => p.Chitietdonhangs)
+                    .HasForeignKey(d => d.Masp)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Chitietdonhang_Sanpham");
             });
 
             modelBuilder.Entity<Donhang>(entity =>
@@ -107,6 +125,18 @@ namespace MobileShop.Models
                 entity.HasKey(e => new { e.Masp, e.Mamau });
 
                 entity.ToTable("Mau_Sanpham");
+
+                entity.HasOne(d => d.MamauNavigation)
+                    .WithMany(p => p.MauSanphams)
+                    .HasForeignKey(d => d.Mamau)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Mau_Sanpham_Mau");
+
+                entity.HasOne(d => d.MaspNavigation)
+                    .WithMany(p => p.MauSanphams)
+                    .HasForeignKey(d => d.Masp)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Mau_Sanpham_Sanpham");
             });
 
             modelBuilder.Entity<Nguoidung>(entity =>
@@ -157,7 +187,21 @@ namespace MobileShop.Models
 
                 entity.ToTable("Sanpham");
 
+                entity.Property(e => e.Chip).HasMaxLength(50);
+
+                entity.Property(e => e.Dophangiai).HasMaxLength(50);
+
+                entity.Property(e => e.Dosangtoida).HasMaxLength(50);
+
+                entity.Property(e => e.Dungluongpin).HasMaxLength(50);
+
                 entity.Property(e => e.Giatien).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.Hedieuhanh).HasMaxLength(50);
+
+                entity.Property(e => e.Kichthuoc).HasMaxLength(50);
+
+                entity.Property(e => e.Manhinh).HasMaxLength(50);
 
                 entity.Property(e => e.Mota).HasColumnType("ntext");
 

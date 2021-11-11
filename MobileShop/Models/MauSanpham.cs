@@ -9,5 +9,8 @@ namespace MobileShop.Models
     {
         public int Masp { get; set; }
         public int Mamau { get; set; }
+
+        public virtual Mau MamauNavigation { get; set; }
+        public virtual Sanpham MaspNavigation { get; set; }
     }
 }

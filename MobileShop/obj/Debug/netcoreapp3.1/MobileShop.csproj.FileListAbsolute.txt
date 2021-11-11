@@ -637,3 +637,5 @@ D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netc
 >>>>>>> df108e557ff376ab8791026e3ae876790510bed1
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MauIndex.cshtml.g.cs
 D:\Learning\FPT U\Ki5\PRN211\Project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditMau.cshtml.g.cs
+D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditMau.cshtml.g.cs
+D:\FPT_Uni\Sem5\codeC#_Trung\script_project\MobileShop-PRN211\MobileShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\MauIndex.cshtml.g.cs
