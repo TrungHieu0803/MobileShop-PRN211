@@ -22,9 +22,8 @@ namespace MobileShop.Controllers
         MobileShopContext db = new MobileShopContext();
         public IActionResult Index()
         {
-            ViewData["iphone"] = db.Sanphams.Where(n => n.Mahang == 2).Take(4).ToList();
-            ViewData["samsung"] = db.Sanphams.Where(n => n.Mahang == 1).Take(4).ToList();
-            ViewData["xiaomi"] = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
+            ViewData["HangSanXuat"] = db.Hangsanxuats.ToList();
+            ViewData["iphone"] = db.Sanphams.ToList();
             if(HttpContext.Session.GetString("UserSession") != null)
             TempData["User"] = JsonConvert.DeserializeObject<Nguoidung>(HttpContext.Session.GetString("UserSession"));
             return View();

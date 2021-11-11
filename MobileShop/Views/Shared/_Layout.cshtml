@@ -1,10 +1,24 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title -PRN211- group 6</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ustora Demo</title>
 
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel=" stylesheet" href="~/css/Style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,142 +27,175 @@
     <script src="~/js/jquery-3.4.1.js"></script>
     <script src="~/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    @using MobileShop.Models
 
 
-    <style type="text/css">
-        body {
-            background-color: #F0F0F0;
-        }
-
-        .navbar-inverse {
-            background-color: #39B54A;
-            border-color: #39B54A;
-        }
-
-        .top_header {
-            background-color: black;
-            padding-left: 110px;
-            color: white;
-        }
-
-        .form-inline {
-            float: right;
-            padding-top: 10px;
-        }
-
-        .navbar-inverse .navbar-nav > li > a {
-            color: white;
-            font-size: x-large;
-        }
-
-        .navbar-inverse .navbar-brand {
-            color: white;
-        }
-
-        .navbar-inverse .navbar-nav > li > a {
-            color: white;
-            font-size: large;
-        }
-
-            .navbar-inverse .navbar-nav > li > a:hover {
-                color: black;
-            }
-
-        .navbar-brand {
-            color: cadetblue;
-        }
-
-        .spnoibat {
-            background-color: white;
-        }
-
-            .spnoibat h3 {
-                padding-left: 30px;
-            }
-
-        .giohang {
-            color: white;
-        }
-    </style>
-
-
-
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
 
-    @{ var u = TempData["User"] as Nguoidung; }
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #19194d ">
-        <div class="top_header col-md-12">
-            <div class="row" style="text-align:center">
-                @{ if (u != null)
-                    {
-                        <div class="col-sm-4 col-md-0">
-                            Xin chào : @u.Email
-                            <a style="color:red" href="/Users/Logout"> ĐĂNG XUẤT</a>
-                        </div> }
-                    else
-                    {
-                        <div class="col-sm-4 col-md-0">
-                            <a style="color:white" href="/Users/Login"> Đăng nhập</a>
-
-                            <a style="color:white" href="/Users/Register"> Đăng ký</a>
-                        </div> } 
-                    }
-            </div>
-        </div>
+    <div class="header-area">
         <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="#"><i class="fas fa fa-user"></i> My Account</a></li>
+                            <li><a href="#"><i class="fas fa fa-heart"></i> Wishlist</a></li>
+                            <li><a href="cart.html"><i class="fas fa fa-user"></i> My Cart</a></li>
+                            <li><a href="checkout.html"><i class="fas fa fa-user"></i> Checkout</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img class="navbar-brand" src="https://cdn-icons-png.flaticon.com/512/438/438560.png" width="50" height="50" style="padding:0" />
-                @Html.ActionLink("Mobile Shop - PRN211", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="col-md-4">
+                    <div class="header-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="dropdown dropdown-small">
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">USD</a></li>
+                                    <li><a href="#">INR</a></li>
+                                    <li><a href="#">GBP</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown dropdown-small">
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">German</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div> <!-- End header area -->
 
-            <div class="navbar-collapse collapse">
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo">
+                        <h1><a href="./"><img src="img/logo.png"></a></h1>
+                    </div>
+                </div>
 
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@Url.Action("Index", "Sanpham")">Sản Phẩm</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "DonHangs")">Đơn Hàng</a>
-                    </li>
-                    <li>
-                        @*@Html.ActionLink("GioHangPartial", "GioHang", new { @class = "giohang" })*@
-                        <a asp-controller="GioHang" asp-action="GioHang"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</a>
-                        @*<a asp-controller="Product" asp-action="Index">Products</a>*@
-                    </li>
-                    <li>
-                        <form asp-controller="Sanpham" asp-action="Index" class="form-inline my-2 my-lg-0">
-                            <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Search here ..." aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </li>
-                </ul>
+                <div class="col-sm-6">
+                    <div class="shopping-item">
+                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div> <!-- End site branding area -->
 
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop page</a></li>
+                        <li><a href="single-product.html">Single product</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">Others</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End mainmenu area -->
+
+    @RenderBody()
+
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-refresh"></i>
+                        <p>30 Days return</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-truck"></i>
+                        <p>Free shipping</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-lock"></i>
+                        <p>Secure payments</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-gift"></i>
+                        <p>New products</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <br>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <div>
-            <img class="img-responsive" src="https://cdn.tgdd.vn/2021/10/banner/1200-44-1200x44-3.png" />
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-card-icon">
+                        <i class="fa fa-cc-discover"></i>
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-paypal"></i>
+                        <i class="fa fa-cc-visa"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br />
-    </div>
-    <footer style=" background-color: #19194d; color: white">
-        <center> <p>&copy; @DateTime.Now.Year - PRN211 - Group 6</p></center>
-    </footer>
+    </div> <!-- End footer bottom area -->
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
 
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+    <!-- jQuery sticky menu -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
 
+    <!-- jQuery easing -->
+    <script src="~/js/jquery.easing.1.3.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="~/js/main.js"></script>
+
+    <!-- Slider -->
+    <script type="text/javascript" src="~/js/bxslider.min.js"></script>
+    <script type="text/javascript" src="~/js/script.slider.js"></script>
 </body>
 </html>
