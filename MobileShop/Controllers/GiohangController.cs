@@ -40,7 +40,7 @@ namespace MobileShop.Controllers
             //Lấy ra session giỏ hàng
             List<GioHang> lstGioHang = LayGioHang();
             //Kiểm tra sp này đã tồn tại trong session[giohang] chưa
-            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMasp == iMasp);
+            GioHang sanpham = lstGioHang.Find(n => n.iMasp == iMasp);
            
 
             if (sanpham == null)
@@ -48,12 +48,12 @@ namespace MobileShop.Controllers
                 sanpham = new GioHang(iMasp);
                 //Add sản phẩm mới thêm vào list
                 lstGioHang.Add(sanpham);
-                return Redirect("/Giohang/Giohang");
+                return Redirect(strURL);
             }
             else
             {
                 sanpham.iSoLuong++;
-                return Redirect("/Giohang/Giohang");
+                return Redirect(strURL);
             }
         }
         //Cập nhật giỏ hàng 
