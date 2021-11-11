@@ -57,6 +57,41 @@
             @Html.ValidationMessageFor(model => model.Ram, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
+            <label>Hệ điều hành</label>
+            @Html.EditorFor(model => model.Hedieuhanh, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Hedieuhanh, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Màn hình</label>
+            @Html.EditorFor(model => model.Manhinh, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Manhinh, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Chip</label>
+            @Html.EditorFor(model => model.Chip, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Chip, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Dung lượng pin</label>
+            @Html.EditorFor(model => model.Dungluongpin, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dungluongpin, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Độ sáng tối đa</label>
+            @Html.EditorFor(model => model.Dosangtoida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dosangtoida, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Độ phân giải</label>
+            @Html.EditorFor(model => model.Dophangiai, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dophangiai, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Kích thước</label>
+            @Html.EditorFor(model => model.Kichthuoc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Kichthuoc, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
             <label>Ảnh</label>
             @Html.EditorFor(model => model.Anhbia, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Anhbia, "", new { @class = "text-danger" })
